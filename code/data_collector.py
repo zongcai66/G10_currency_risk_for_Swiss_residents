@@ -2,10 +2,8 @@ import requests
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 
-#test 3
 # Define file names
 data_file = "devkua.csv"
 structure_file = "devkua.json"
@@ -26,5 +24,4 @@ with requests.get(structure_url) as r:
 # Load the data into a DataFrame
 data = pd.read_csv(data_file, skiprows=3, sep=";")
 data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m')
-
-data
+data.to_csv("snb_FX.csv", index=False)
