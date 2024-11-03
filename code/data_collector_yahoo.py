@@ -27,6 +27,6 @@ df_long['date'] = df_long['date'].dt.date
 df_long['ticker'] = df_long['ticker'].map(tickers)
 
 df_long = df_long.dropna(subset=['value'])
-df.to_csv("data/raw/yahoo_FX.csv", index=False)
+df_long.to_csv("data/raw/yahoo_FX.csv", index=False)
 
 print(df_long)
