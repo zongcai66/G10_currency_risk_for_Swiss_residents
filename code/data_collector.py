@@ -17,6 +17,6 @@ with requests.get(data_url) as r:
 # Load the data into a DataFrame
 data = pd.read_csv(data_file, skiprows=3, sep=";")
 data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m')
-data.to_csv("snb_FX.csv", index=False)
+data.to_csv("data/snb_FX.csv", index=False)
 print(data)
 
