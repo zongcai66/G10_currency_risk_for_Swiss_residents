@@ -1,10 +1,11 @@
-# Group Project
+# Which of the G10 currencies is the riskiest to hold for a Swiss resident?
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-G10 description
+This is the group project. 
+begins with the project organization
 
 ## Project Organization
 
@@ -13,9 +14,8 @@ G10 description
 ├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
+│   ├── transformed    <- Intermediate data that has been transformed.
+│   ├── modeling_data  <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
 ├── docs               <- A default mkdocs project; see www.mkdocs.org for details
@@ -39,13 +39,15 @@ G10 description
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── group_project   <- Source code for use in this project.
+└── code               <- Source code for use in this project.
     │
     ├── __init__.py             <- Makes group_project a Python module
     │
     ├── config.py               <- Store useful variables and configuration
     │
-    ├── dataset.py              <- Scripts to download or generate data
+    ├── data_collector_SNB.py   <- Scripts to download or generate data
+    │
+    ├── data_collector_yahoo.py <- Scripts to download or generate data
     │
     ├── features.py             <- Code to create features for modeling
     │
