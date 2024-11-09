@@ -5,7 +5,7 @@
 </a>
 
 This is the group project. 
-begins with the project organization
+begins with the project organization.
 
 ## Project Organization
 
