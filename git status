@@ -1,0 +1,155 @@
+[33mcommit f6e37a0f14ed6358a34aa35252810c8f284469a2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: zongcai66 <91093154+zongcai66@users.noreply.github.com>
+Date:   Sat Nov 9 18:52:48 2024 +0100
+
+    Update README.md
+
+[33mcommit 2efbee6e735c4c47342a108392cc05b89bde08fe[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 18:51:02 2024 +0100
+
+    update readme
+
+[33mcommit 74bb33a95ccb508256ca0adc9dbbdb1efd3f1b22[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 18:39:39 2024 +0100
+
+    delete data/interim
+
+[33mcommit c41326c291d5052e66003c03324c5462eeb641db[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 18:34:20 2024 +0100
+
+    add data folder
+
+[33mcommit b4ee04f0ac8bbc27241753acad930710fd437f5d[m
+Author: zongcai66 <91093154+zongcai66@users.noreply.github.com>
+Date:   Sat Nov 9 18:25:11 2024 +0100
+
+    Delete data/raw directory
+
+[33mcommit 906294b005e046881357a63d11468cdf1ee9d7a5[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 18:24:02 2024 +0100
+
+    add data folder
+
+[33mcommit e80946143bab38962fb3aa98d6de4aaaa46e719c[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 18:17:53 2024 +0100
+
+    remove data
+
+[33mcommit 00a8fc95bf4589228a14f8bdc15e105dcda5de23[m
+Author: PHOEBE <phoebe@macbook-pro-3.home>
+Date:   Sat Nov 9 17:55:13 2024 +0100
+
+    add data folder
+
+[33mcommit 367360d372eb7ec87cc0f3d84684a66fb7f23b99[m
+Author: zongcai66 <91093154+zongcai66@users.noreply.github.com>
+Date:   Sat Nov 9 17:36:27 2024 +0100
+
+    Delete data directory
+    
+    trying to add it again with the template
+
+[33mcommit 3857c56ec6da402dd0f1f6a2668371bdb93379ec[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:57:23 2024 +0100
+
+    1
+
+[33mcommit 794bff28101c37479e008d6721b709b54468a43f[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:56:40 2024 +0100
+
+    1
+
+[33mcommit 275f0f410e4dd160dae047e373c90b51c24854f7[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:54:36 2024 +0100
+
+    1
+
+[33mcommit 1f096752804fe7c4e08b81f1a2c4b4b167d34d60[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:53:11 2024 +0100
+
+    1
+
+[33mcommit e6b6ef35b7f22e269da7e9b1be1b03facaf660ec[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:51:56 2024 +0100
+
+    1
+
+[33mcommit 876ead0dda63a9e4a4b0e147008373e1f0ef43a5[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:49:15 2024 +0100
+
+    1
+
+[33mcommit 5b1f314b68c95de7a4440ca07d279727c70c95a0[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:47:19 2024 +0100
+
+    1
+
+[33mcommit 20fb01e122b88c4ef29fc9261c4dd31a8c255184[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:46:52 2024 +0100
+
+    1
+
+[33mcommit 4751c41743ff64b1f34e97b29386d545c44fe798[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:20:29 2024 +0100
+
+    1
+
+[33mcommit 9d903f02f421760e2ae7a652f36ee152d1c0fc99[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:15:01 2024 +0100
+
+    1
+
+[33mcommit a05d152e97ad3b51cc8061289a6fa38b5ebb4863[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:13:18 2024 +0100
+
+    improvement
+
+[33mcommit c78b0b81e8edae50bff75149fc8be1841b76a5fa[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 16:11:09 2024 +0100
+
+    improvement
+
+[33mcommit d924e7938d4115a23e06b185ce2aad4be5417bb4[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 15:44:17 2024 +0100
+
+[33mcommit d719f90815ac508e43af8e47a008f502df3dd6de[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 15:42:17 2024 +0100
+
+    testing
+
+[33mcommit ee9b4155b3c7d90068446b0b95b3f83f8be18408[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 15:35:30 2024 +0100
+
+    test 2
+
+[33mcommit 33da356dbda30d0e7f50a9fe1c1be7c518c4594a[m
+Author: Mr-ESG <17lauyan@gmail.com>
+Date:   Sun Nov 3 15:28:19 2024 +0100
+
+    expand code
+
+[33mcommit 38dd2eb9ef057f93e24878dedb0ecf3739465de8[m
+Author: Mr-ESG <162375201+Mr-ESG@users.noreply.github.com>
+Date:   Sun Nov 3 13:27:04 2024 +0100
+
+    Create data_collector.py
