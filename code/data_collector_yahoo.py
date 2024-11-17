@@ -1,7 +1,5 @@
-import requests
 import yfinance as yf
 import pandas as pd
-import matplotlib.pyplot as plt
 
 g10_chf_tickers = [
     "EURCHF=X",  # Euro
