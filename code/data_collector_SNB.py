@@ -24,4 +24,3 @@ print(data)
 # delete temp file
 if os.path.isfile(data_file):
     os.remove(data_file)
-
