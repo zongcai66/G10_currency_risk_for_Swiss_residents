@@ -13,7 +13,7 @@ if not os.path.exists(figures_dir):
     os.makedirs(figures_dir)
 
 # Load the CSV data from the remote repository
-df = pd.read_csv("https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/raw/yahoo_FX.csv", header=None, names=['Date', 'Currency Pair', 'Type', 'Value'])
+df = pd.read_csv("https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/transformed/yahoo_FX_2.csv", header=None, names=['Date', 'Currency Pair', 'Type', 'Value'])
 
 # Filter only the rows with the type 'Adj Close'
 df_adj_close = df[df['Type'] == 'Adj Close'].copy()
