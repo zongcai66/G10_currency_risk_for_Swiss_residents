@@ -122,13 +122,83 @@ Compare and analyze: "Which of the G10 currencies is the riskiest to hold for a 
 \begin{frame}
 \section{Methodology}
 \frametitle{Methodology}
-Risk and relevant metrics (in code): VaR, Volatility, exchange-rate risk, interest rate ...
+Risk and relevant metrics (in code): VaR, Monte Carlo, Depreciation Risk, Volatility Risk, Exchange Rate Risk, Interest Rate, etc.
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
 \section{Main Findings}
 \frametitle{Main Findings}
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
+    \caption{5\% VaR Comparison Plot.}
+    \label{fig:var_5_percent_comparison_plot}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for AUD-CHF.}
+\end{figure}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_CADCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_CADCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for CAD-CHF.}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_EURCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_EURCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_EURCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_EURCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for EUR-CHF.}
+\end{figure}
+\begin{figure}
+    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_GBPCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_GBPCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_GBPCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for GBP-CHF.}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for JPY-CHF.}
+\end{figure}
+\begin{figure}
+    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_NOKCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_NOKCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for NOK-CHF.}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for NZD-CHF.}
+\end{figure}
+\begin{figure}
+    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_SEKCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_SEKCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for SEK-CHF.}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_USDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_USDCHF_vs_CHF}
+    \includegraphics[width=0.49\linewidth]{reports/figures/monte_carlo_var_simulation_USDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_USDCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for USD-CHF.}
+\end{figure}
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
