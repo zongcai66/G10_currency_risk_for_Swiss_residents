@@ -11,6 +11,9 @@ df = pd.read_csv(url)
 # Länder, die im Datensatz enthalten sind
 countries = df['country'].unique()
 
+# Liste für Ergebnisse (für die CSV-Datei)
+results_list = []
+
 # Führe die Regression für jedes Land durch
 for country in countries:
     # Filtere die Daten für jedes Land
@@ -33,10 +36,31 @@ for country in countries:
     summary.tables[1].index = summary.tables[1].index.str.replace('const', 'alpha')
     summary.tables[1].index = summary.tables[1].index.str.replace('interest_rate_log_diff', 'Beta')
 
-    # Formatiere alle numerischen Werte auf 4 Dezimalstellen
+    # Formatiere alle numerischen Werte auf 4 Dezimalstellen für die PNG-Ausgabe
     summary.tables[1] = summary.tables[1].applymap(lambda x: f"{x:.4f}" if isinstance(x, (float, int)) else x)
 
-    # Füge die Sterne für das Signifikanzniveau hinzu
+    # Extrahiere rohe Werte für die CSV-Datei vor dem Hinzufügen von Sternchen
+    alpha_row = model.params['const'], model.bse['const'], model.tvalues['const'], model.pvalues['const'], model.conf_int().loc['const', 0], model.conf_int().loc['const', 1]
+    beta_row = model.params['interest_rate_log_diff'], model.bse['interest_rate_log_diff'], model.tvalues['interest_rate_log_diff'], model.pvalues['interest_rate_log_diff'], model.conf_int().loc['interest_rate_log_diff', 0], model.conf_int().loc['interest_rate_log_diff', 1]
+
+    # Füge die Werte zur Liste hinzu
+    results_list.append({
+        'Country': country,
+        'Alpha': f"{alpha_row[0]:.4f}",
+        'Beta': f"{beta_row[0]:.4f}",
+        'Alpha Std.Err.': f"{alpha_row[1]:.4f}",
+        'Beta Std.Err.': f"{beta_row[1]:.4f}",
+        'Alpha t': f"{alpha_row[2]:.4f}",
+        'Beta t': f"{beta_row[2]:.4f}",
+        'Alpha P>|t|': f"{alpha_row[3]:.4f}",
+        'Beta P>|t|': f"{beta_row[3]:.4f}",
+        'Alpha [0.025': f"{alpha_row[4]:.4f}",
+        'Alpha 0.975]': f"{alpha_row[5]:.4f}",
+        'Beta [0.025': f"{beta_row[4]:.4f}",
+        'Beta 0.975]': f"{beta_row[5]:.4f}"
+    })
+
+    # Füge die Sterne für das Signifikanzniveau hinzu (nur für die PNG-Ausgabe)
     for idx in range(len(summary.tables[1])):
         p_value = float(summary.tables[1].iloc[idx]['P>|t|'])
         # Hinzufügen von Sternen basierend auf dem p-Wert
@@ -63,3 +87,9 @@ for country in countries:
     plt.close()
 
     print(f"Regression summary for {country} saved to '{output_file}'")
+
+# Konvertiere die Ergebnisse in einen DataFrame und speichere sie als CSV
+results_df = pd.DataFrame(results_list)
+output_csv = '../reports/figures/regression_summaries.csv'
+results_df.to_csv(output_csv, index=False)
+print(f"All regression results saved to '{output_csv}'")
