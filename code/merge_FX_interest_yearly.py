@@ -39,7 +39,7 @@ df_fx = df_fx[['date', 'ticker', 'value', 'prev_year_value', 'log_return', 'mont
 # Map countries
 df_fx['country'] = df_fx['ticker'].str[:3]
 country_map = {
-    'AUD': 'Australia', 'CAD': 'Canada', 'EUR': 'Germany', 'GBP': 'United Kingdom',
+    'AUD': 'Australia', 'CAD': 'Canada', 'EUR': 'Germany', 'GBP': 'UK',
     'JPY': 'Japan', 'SEK': 'Sweden', 'USD': 'United States', 'NZD': 'New Zealand',
     'NOK': 'Norway', 'CHF': 'Switzerland'
 }
