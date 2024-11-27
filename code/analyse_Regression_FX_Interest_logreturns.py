@@ -14,6 +14,32 @@ countries = df['country'].unique()
 # Liste für Ergebnisse (für die CSV-Datei)
 results_list = []
 
+# Funktion zum Hinzufügen von Sternchen für Signifikanz
+def add_stars(p_value):
+    if p_value < 0.01:
+        return "***"
+    elif p_value < 0.05:
+        return "**"
+    elif p_value < 0.1:
+        return "*"
+    return ""
+
+# Funktion zur Formatierung von Zahlen für die Darstellung im Plot
+def format_value(value):
+    # Wenn der Wert numerisch ist, formatieren wir ihn auf 2 Dezimalstellen
+    if isinstance(value, (float, int)):
+        return f"{value:.2f}"  # Formatierung auf 2 Dezimalstellen mit genauem Abstand
+    return str(value)
+
+# Funktion zur Formatierung der P-Werte mit Sternchen
+def format_p_value(p_value):
+    try:
+        p_value_float = float(p_value)  # Versuche den P-Wert als Zahl zu interpretieren
+        stars = add_stars(p_value_float)  # Füge Sterne hinzu, falls erforderlich
+        return f"{stars} {p_value_float:.2f}"  # Sterne links vom P-Wert und Dezimalstellen ausgerichtet
+    except ValueError:
+        return p_value  # Falls es sich um einen anderen Wert handelt (z. B. bereits formatiert)
+
 # Führe die Regression für jedes Land durch
 for country in countries:
     # Filtere die Daten für jedes Land
@@ -36,14 +62,17 @@ for country in countries:
     summary.tables[1].index = summary.tables[1].index.str.replace('const', 'alpha')
     summary.tables[1].index = summary.tables[1].index.str.replace('interest_rate_log_diff', 'Beta')
 
-    # Formatiere alle numerischen Werte auf 4 Dezimalstellen für die PNG-Ausgabe
-    summary.tables[1] = summary.tables[1].applymap(lambda x: f"{x:.4f}" if isinstance(x, (float, int)) else x)
+    # Formatierung der Tabelle auf 2 Dezimalstellen und Ausrichtung
+    summary.tables[1] = summary.tables[1].applymap(lambda x: format_value(x))
 
-    # Extrahiere rohe Werte für die CSV-Datei vor dem Hinzufügen von Sternchen
+    # P-Werte formatieren und Sterne hinzufügen
+    summary.tables[1]['P>|t|'] = summary.tables[1]['P>|t|'].apply(format_p_value)
+
+    # Extrahiere rohe Werte für die CSV-Datei (mit 4 Dezimalstellen)
     alpha_row = model.params['const'], model.bse['const'], model.tvalues['const'], model.pvalues['const'], model.conf_int().loc['const', 0], model.conf_int().loc['const', 1]
     beta_row = model.params['interest_rate_log_diff'], model.bse['interest_rate_log_diff'], model.tvalues['interest_rate_log_diff'], model.pvalues['interest_rate_log_diff'], model.conf_int().loc['interest_rate_log_diff', 0], model.conf_int().loc['interest_rate_log_diff', 1]
 
-    # Füge die Werte zur Liste hinzu
+    # Füge die Werte zur Liste für die CSV-Ausgabe hinzu (mit 4 Dezimalstellen)
     results_list.append({
         'Country': country,
         'Alpha': f"{alpha_row[0]:.4f}",
@@ -60,21 +89,17 @@ for country in countries:
         'Beta 0.975]': f"{beta_row[5]:.4f}"
     })
 
-    # Füge die Sterne für das Signifikanzniveau hinzu (nur für die PNG-Ausgabe)
-    for idx in range(len(summary.tables[1])):
-        p_value = float(summary.tables[1].iloc[idx]['P>|t|'])
-        # Hinzufügen von Sternen basierend auf dem p-Wert
-        if p_value < 0.01:
-            summary.tables[1].iloc[idx, 3] = f"{summary.tables[1].iloc[idx, 3]} ***"
-        elif p_value < 0.05:
-            summary.tables[1].iloc[idx, 3] = f"{summary.tables[1].iloc[idx, 3]} **"
-        elif p_value < 0.1:
-            summary.tables[1].iloc[idx, 3] = f"{summary.tables[1].iloc[idx, 3]} *"
-
     # Erstelle das Plot mit der Zusammenfassung als Text
-    fig, ax = plt.subplots(figsize=(10, 6))  # Erstelle ein Plot mit passender Größe
+    fig, ax = plt.subplots(figsize=(12, 7))  # Erstelle ein Plot mit passender Größe
     ax.axis('off')  # Deaktiviere die Achsen
-    ax.text(0.1, 0.5, summary.as_text(), ha='left', va='center', fontsize=10, family='monospace')  # Drucke die Zusammenfassung als Text im Plot
+    
+    # Formatierung der Zusammenfassung für das Plot (mit 2 Dezimalstellen und Ausrichtung)
+    formatted_text = summary.as_text()
+    formatted_text = "\n".join([format_value(value) for value in formatted_text.split('\n')])
+
+    # Drucke die Zusammenfassung als Text im Plot
+    ax.text(0.1, 0.5, formatted_text, ha='left', va='center', fontsize=10, family='monospace')  # Monospace sorgt für die Ausrichtung der Dezimalstellen
+
     ax.set_title(f'Regression Summary for {country}', fontsize=12)
 
     # Speichern des Plots als PNG-Datei
