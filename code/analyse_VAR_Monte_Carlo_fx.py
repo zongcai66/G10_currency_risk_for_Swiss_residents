@@ -116,17 +116,17 @@ last_ret = df_returns.iloc[-1, :]  # Last returns for each currency pair
 daily_vol = df_returns.std()  # Daily volatility for each currency pair
 
 # Define the function to calculate VaR using the Monte Carlo simulation
-def mcVaR(simulation_df_ret, alpha=5):  
+def mcVaR(simulation_df_ret, alpha=5):
     return np.percentile(simulation_df_ret, alpha)
 
 # Loop through each currency pair (excluding CHF)
-for i, column in enumerate(df_returns.columns):  
+for i, column in enumerate(df_returns.columns):
     if column != 'CHF':  # Skip CHF as we compare each currency to CHF
         simulation_df_rate = pd.DataFrame()
         simulation_df_ret = pd.DataFrame()
 
         # Perform simulations
-        for x in range(num_simulations): 
+        for x in range(num_simulations):
             count = 0
             daily_voli = daily_vol[column]
 
@@ -199,3 +199,29 @@ plt.tight_layout()
 # Save the comparison plot for VaR 5% values
 plt.savefig(os.path.join(figures_dir, 'var_5_percent_comparison_plot.png'), dpi=300)  # Save in the 'figures' folder
 plt.show()  # Show the VaR 5% comparison plot
+
+# Store the historical VaR and Monte Carlo VaR in a table
+monte_carlo_vars = {}
+
+for column in df_returns.columns:
+    simulation_df_ret = pd.DataFrame()
+
+    for _ in range(num_simulations):
+        simulated_returns = np.random.normal(loc=0, scale=daily_vol[column], size=num_days)
+        simulation_df_ret = pd.concat(
+            [simulation_df_ret, pd.Series(simulated_returns)], axis=1)
+
+    # Monte Carlo VaR
+    mc_var = np.percentile(simulation_df_ret.iloc[-1, :], 5)
+    monte_carlo_vars[column] = mc_var
+
+# create table
+result_df = pd.DataFrame({
+    'Currency Pair': var_95.index,
+    'Historical VaR (5%)': var_95.values,
+    'Monte Carlo VaR (5%)': [monte_carlo_vars[currency] for currency in
+                             var_95.index]
+})
+
+output_path = os.path.join(figures_dir, 'VaR_results.csv')
+result_df.to_csv(output_path, index=False)
