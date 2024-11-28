@@ -6,6 +6,7 @@
 \usepackage{biblatex}
 \addbibresource{reports/paper/refs.bib}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 
 \title{\textbf{Which of the G10 Currencies is the Riskiest to Hold for a Swiss Resident?}}
@@ -62,8 +63,18 @@ The regression analysis determined the parameters \(\alpha\) (intercept) and \(\
 
 \section{Data}
 \section{Results}
+
 \section{Conclusion}
 \section*{Appendix}
-
+\begin{figure}[h]
+    \centering  \includegraphics[width=0.8\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
+    \includegraphics[width=0.8\linewidth]{reports/figures/monte_carlo_var_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for AUD-CHF.}
+\end{figure}
+\begin{figure}
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_CADCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_CADCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for CAD-CHF.}
+\end{figure}
 \printbibliography
 \end{document}
