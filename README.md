@@ -4,8 +4,7 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-This is the group project. 
-begins with the project organization.
+This project aims to address systematic comparisons of G10 currency risks from the perspective of Swiss residents. By utilizing historical data and Monte Carlo simulation methods, we evaluate the volatility, Value-at-Risk (VaR), and Expected Shortfall (ES) of each G10 currency to identify the most risky assets. The findings are expected to provide a scientific basis of investment and risk management strategies for Swiss residents.
 
 ## Project Organization
 
