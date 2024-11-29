@@ -63,9 +63,20 @@ The sensitivity of exchange rate returns to interest rate differentials was exam
 The regression analysis determined the parameters \(\alpha\) (intercept) and \(\beta\) (sensitivity of returns to interest rate differentials). Significance tests and confidence intervals were used to assess the statistical significance of the parameters. A detailed summary of the regression was created for each currency.
 
 \section{Data}
+
+
 \section{Results}
+\subsection{Basic Risk Measures}
+
 \subsection{VaR Calculation}
-In the historical VaR analysis in Table~\ref{table:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+In the historical VaR analysis from Table~\ref{table:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
+    \caption{Historical VaR of G10 currencies.}
+    \label{fig:enter-label}
+\end{figure}
 
 \begin{table}[!ht]
     \centering
@@ -141,12 +152,29 @@ Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:mo
     \caption{Monte Carlo Price Simulation of JPYCHF vs. CHF}  \label{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF}
 \end{figure}
 
-In conclusion...
+\subsection{Interest Rate Regression Analysis}
+The regression results for JPY show a significant negative sensitivity to interest rate changes in Figure~\ref{fig:regression_summary_Japan} ($\beta$ = -3.25, highly significant), indicating that the return rate of the yen fluctuates significantly with changes in interest rates. However, due to the stability of the Japanese economy and the market confidence in the yen's role as a safe-haven currency, the overall volatility of the yen is controlled. This explains why the VaR and price volatility of yen are both low, meaning that in the actual market, the price volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.
+
+\begin{figure}[h]
+    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/regression_summary_Japan.png}
+    \caption{Regression Summary of JPY.}
+    \label{fig:regression_summary_Japan}
+\end{figure}
+
+In contrast , despite the regression results for NZD showing a low sensitivity to interest rate changes ($\beta$ = 0.13, and not significant), which implies that interest rate changes do not have a major impact on NZD in the regression model. However, VaR and price volatility of NZD are high. This indicates that NZD has considerable volatility in the actual market, then there may be other factors significantly affect NZD, such as commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market. These factors may not have been adequately captured in the interest rate regression model.
+
+\begin{figure}[h]
+    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/regression_summary_New Zealand.png}
+    \caption{Regression Summary of NZD.}
+    \label{fig:regression_summary_New Zealand}
+\end{figure}
+
+In conclusion, ...
 
 \section{Conclusion}
 \section*{Appendix}
 
-\begin{figure}
+\begin{figure}[h]
     \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_CADCHF_vs_CHF}
     \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_CADCHF_vs_CHF}
     \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for CAD-CHF.}
