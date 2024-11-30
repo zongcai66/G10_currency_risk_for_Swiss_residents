@@ -1,7 +1,25 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{dcolumn}
+\usepackage{threeparttable}
+
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+% Placeholder paragraphs with text
+\usepackage{blindtext}
+
+% No indent for new paragraphs
+\setlength\parindent{0pt}
+
+% bibliography
+% \addbibresource{template-biblio.bib}
+
+
+% \documentclass[a4paper, 12pt]{article}
+
 \usepackage{parskip}
-\usepackage[utf8]{inputenc} 
-\usepackage[english]{babel}
+% \usepackage[utf8]{inputenc} 
+% \usepackage[english]{babel}
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{biblatex}
 \addbibresource{reports/paper/refs.bib}
