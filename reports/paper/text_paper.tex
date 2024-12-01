@@ -81,7 +81,13 @@ The sensitivity of exchange rate returns to interest rate differentials was exam
 The regression analysis determined the parameters \(\alpha\) (intercept) and \(\beta\) (sensitivity of returns to interest rate differentials). Significance tests and confidence intervals were used to assess the statistical significance of the parameters. A detailed summary of the regression was created for each currency.
 
 \section{Data}
+The compiled datasets contain overnight interest rates and foreign exchange rate data from multiple sources.
 
+\subsection{Overnight Interest Rates}
+Overnight interest rate data for Norway, Japan, the United Kingdom, the United States, Germany, Australia, New Zealand, and Canada were obtained from the Federal Reserve Economic Data (FRED) database. These data represent monthly average rates, transformed and published according to FRED's standards. Data for Switzerland was retrieved from the Swiss National Bank's (SNB) official API, specifically using the SARON (Swiss Average Rate Overnight) series to reflect overnight interest rates. Similarly, overnight interest rate data for Sweden was sourced from the Swedish Riksbank’s Interest Rates and Exchange Rates Statistics, where the repo effective rate is presented in monthly values. The dataset spans the period from January 2000 to October 2024.
+
+\subsection*{Foreign Exchange Rates}
+Daily foreign exchange rate data for G10 currencies against the Swiss Franc (CHF) were collected using the YFinance library. The dataset includes exchange rates for the Euro (EUR/CHF), British Pound (GBP/CHF), US Dollar (USD/CHF), Canadian Dollar (CAD/CHF), Swedish Krona (SEK/CHF), Japanese Yen (JPY/CHF), Australian Dollar (AUD/CHF), New Zealand Dollar (NZD/CHF), and Norwegian Krone (NOK/CHF). The data spans the period from January 1, 2004, to October 21, 2024.
 
 \section{Results}
 \subsection{Basic Risk Measures}
