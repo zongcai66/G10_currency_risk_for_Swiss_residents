@@ -218,8 +218,8 @@ for column in df_returns.columns:
 # create table
 result_df = pd.DataFrame({
     'Currency Pair': var_95.index,
-    'Historical VaR (5%)': var_95.values,
-    'Monte Carlo VaR (5%)': [monte_carlo_vars[currency] for currency in
+    'Historical VaR': var_95.values,
+    'Monte Carlo VaR': [monte_carlo_vars[currency] for currency in
                              var_95.index]
 })
 
