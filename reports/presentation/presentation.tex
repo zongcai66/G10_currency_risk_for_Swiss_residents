@@ -32,6 +32,7 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{pgfplotstable}
 \usepackage{csvsimple}
 
 
@@ -374,7 +375,20 @@ Low volatility and steady VaR make JPY an excellent hedging option in an investm
 \scriptsize \printbibliography
 \end{frame}
 % ---------------------------------------------------------------------------
-\begin{frame}{123}
-\csvautotabular[col sep=comma]{reports/presentation/test_table.csv}
+\begin{frame}
+
+
+
+\csvreader[
+    tabular=|l|c|c|,
+    table head=\hline Currency Pair & Historical VaR \(5\%\) & Monte Carlo VaR \(5\%\) \\ \hline,
+    late after line=\\\hline
+]{reports/presentationVaR_results.csv}{}% 文件路径
+{\csvcoli & \csvcolii & \csvcoliii}
+
+
+    
 \end{frame}
+
+
 \end{document}
