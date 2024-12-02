@@ -34,7 +34,7 @@ df_returns = calculate_returns(df, freq=freq)
 
 # Calculate statistics for each ticker
 tickers = df_returns.index.get_level_values('ticker').unique()
-stats = pd.DataFrame(columns=['std', 'VaR_5%', 'ES_5%'], index=tickers)
+stats = pd.DataFrame(columns=['std', 'VaR', 'ES'], index=tickers)
 # Loop through each ticker to calculate the required metrics
 for ticker in tickers:
     # Filter data for the current ticker
@@ -82,7 +82,7 @@ plt.close()
 
 # 2. Plot for Value at Risk (VaR) at 5% for each Currency Pair
 plt.figure(figsize=(12, 6))
-plt.bar(stats.index, stats['VaR_5%'], color=[ticker_colors[ticker] for ticker in stats.index], alpha=0.7)
+plt.bar(stats.index, stats['VaR'], color=[ticker_colors[ticker] for ticker in stats.index], alpha=0.7)
 plt.title(f"Value at Risk (VaR) at 5% for Each Currency Pair ({freq_title}) {alpha_title}")
 plt.xlabel("Currency Pair")
 plt.ylabel(f"VaR at 5% {alpha_title}")
@@ -94,7 +94,7 @@ plt.close()
 
 # 3. Plot for Expected Shortfall (ES) at 5% for each Currency Pair
 plt.figure(figsize=(12, 6))
-plt.bar(stats.index, stats['ES_5%'], color=[ticker_colors[ticker] for ticker in stats.index], alpha=0.7)
+plt.bar(stats.index, stats['ES'], color=[ticker_colors[ticker] for ticker in stats.index], alpha=0.7)
 plt.title(f"Expected Shortfall (ES) at 5% for Each Currency Pair ({freq_title}) {alpha_title}")
 plt.xlabel("Currency Pair")
 plt.ylabel(f"ES at 5% {alpha_title}")
