@@ -93,45 +93,47 @@ Daily foreign exchange rate data for G10 currencies against the Swiss Franc (CHF
 \subsection{Basic Risk Measures}
 
 \subsection{VaR Calculation}
-In the historical VaR analysis from Table~\ref{table:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
+\begin{table}[H]
+\centering
+\caption{Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.} 
+\label{tab:var}
+\pgfplotstabletypeset[
+    col sep=comma,
+    fixed zerofill,
+    columns/Currency Pair/.style={string type},
+    columns/Historical VaR/.style={
+        fixed,
+        precision=6,
+        zerofill
+    },
+    columns/Monte Carlo VaR/.style={
+        fixed,
+        precision=6,
+        zerofill
+    },
+    every head row/.style={before row=\hline, after row=\hline},
+    every last row/.style={after row=\hline},
+]{reports/figures/VaR_results.csv}
+\end{table}
+
+\begin{figure}[H]
+    \centering   \includegraphics[width=0.75\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
     \caption{Historical VaR of G10 currencies.}
     \label{fig:historical_VaR}
 \end{figure}
 
-\begin{table}[!ht]
-    \centering
-    \begin{tabular}{|c|c|c|}
-    \hline
-        Currency Pair & Historical VaR (5\%) & Monte Carlo VaR (5\%) \\ \hline
-        AUDCHF & \textbf{-0.011509} & \textbf{-0.016160} \\ \hline
-        CADCHF & -0.010249 & -0.009102 \\ \hline
-        EURCHF & -0.005769 & -0.005250 \\ \hline
-        GBPCHF & -0.009199 & -0.009942 \\ \hline
-        JPYCHF & -0.009865 & -0.009910 \\ \hline
-        NOKCHF & -0.010415 & -0.007992 \\ \hline
-        NZDCHF & \textbf{-0.011832} & \textbf{-0.012486} \\ \hline
-        SEKCHF & -0.009085 & \textbf{-0.011836} \\ \hline
-        USDCHF & -0.009714 & -0.001894 \\ \hline
-    \end{tabular}
-    \label{table:var}
-    \caption{Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.}
-\end{table}
-
 However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR loss of over 1\%, suggesting that AUD and NZD exhibit high risk persistence as can be shown in Figure~\ref{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering   
     \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_AUDCHF_vs_CHF.png}
     \caption{Monte Carlo VaR Simulation of AUDCHF vs. CHF}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
 \end{figure}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}
+    \centering   \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}
     \caption{Monte Carlo VaR Simulation of NZDCHF vs. CHF}  \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
 \end{figure}
 
@@ -145,17 +147,15 @@ Regarding price simulations, GBP shows the most significant price volatility, ap
     \caption{Monte Carlo Price Simulation of GBPCHF vs. CHF}  \label{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}
 \end{figure}
 
-volatility of AUDCHF is around 0.33 (Figure~\ref{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}), and of NZDCHF is approximately 0.27 (Figure~\ref{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}), also reflecting considerable price uncertainty. 
+Volatility of AUDCHF is around 0.33 (Figure~\ref{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}), and of NZDCHF is approximately 0.27 (Figure~\ref{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}), also reflecting considerable price uncertainty. 
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}
+    \centering \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of AUDCHF vs. CHF} \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
 \end{figure}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}
+    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of NZDCHF vs. CHF} \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
 \end{figure}
 This suggests that these three currencies have a wide potential price fluctuation range, with correspondingly high investment risks and potential returns.
@@ -165,8 +165,7 @@ To summarize the results from both VaR and price simulations, AUD and NZD exhibi
 Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF} highlight that JPY has the lowest price volatility, around 0.0022, indicating extremely low future price fluctuations. Combined with its historical VaR and Monte Carlo simulation results consistently remaining around 0.9\%, JPY demonstrates very stable risk characteristics. This suggests that JPY is relatively stable in the current market environment. Its low volatility and steady VaR make it an excellent hedging option in an investment portfolio, especially suitable for investors seeking lower-risk investments.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}
+    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}
     \caption{Monte Carlo VaR Simulation of JPYCHF vs. CHF}   \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
 \end{figure}
 
@@ -177,27 +176,39 @@ Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:mo
 \end{figure}
 
 \subsection{Interest Rate Regression Analysis}
-The regression results for JPY show a significant negative sensitivity to interest rate changes in Figure~\ref{fig:regression_summary_Japan} ($\beta$ = -3.25, highly significant), indicating that the return rate of the yen fluctuates significantly with changes in interest rates. However, due to the stability of the Japanese economy and the market confidence in the yen's role as a safe-haven currency, the overall volatility of the yen is controlled. This explains why the VaR and price volatility of yen are both low, meaning that in the actual market, the price volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.
+The regression results for JPY show a significant negative sensitivity to interest rate changes in Table~\ref{tab:regression} ($\beta$ = -3.25, highly significant), indicating that the return rate of the yen fluctuates significantly with changes in interest rates. However, due to the stability of the Japanese economy and the market confidence in the yen's role as a safe-haven currency, the overall volatility of the yen is controlled. This explains why the VaR and price volatility of yen are both low, meaning that in the actual market, the price volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.
 
-\begin{figure}[h]
-    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/regression_summary_Japan.png}
-    \caption{Regression Summary of JPY.}
-    \label{fig:regression_summary_Japan}
-\end{figure}
-
+\begin{table}[h]
+\centering
+\caption{Regression summaries of exchange rate returns on interest rate differentials.} 
+\label{tab:regression}
+\resizebox{\textwidth}{!}{
+\pgfplotstabletypeset[
+    col sep=comma,
+    string type,
+    columns={Country, Alpha, Beta, Alpha Std.Err., Beta Std.Err., Alpha t, Beta t, Alpha P>|t|, Beta P>|t|},
+    columns/Country/.style={string type, column name=Country},
+    columns/Alpha/.style={fixed, precision=4, column name=$\alpha$},
+    columns/Beta/.style={fixed, precision=4, column name=$\beta$},
+    columns/Alpha Std.Err./.style={fixed, precision=4, column name=std.err\_$\alpha$},
+    columns/Beta Std.Err./.style={fixed, precision=4, column name=std.err\_$\beta$},
+    columns/Alpha t/.style={fixed, precision=4, column name=t-value\_$\alpha$},
+    columns/Beta t/.style={fixed, precision=4, column name=t-value\_$\beta$},
+    columns/Alpha P>|t|/.style={fixed, precision=4, column name=p-value\_$\alpha$},
+    columns/Beta P>|t|/.style={fixed, precision=4, column name=p-value\_$\beta$},
+    every head row/.style={before row=\hline, after row=\hline},
+    every last row/.style={after row=\hline}
+]{reports/figures/regression_summaries.csv}
+}
+\end{table}
 In contrast , despite the regression results for NZD showing a low sensitivity to interest rate changes ($\beta$ = 0.13, and not significant), which implies that interest rate changes do not have a major impact on NZD in the regression model. However, VaR and price volatility of NZD are high. This indicates that NZD has considerable volatility in the actual market, then there may be other factors significantly affect NZD, such as commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market. These factors may not have been adequately captured in the interest rate regression model.
-
-\begin{figure}[h]
-    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/regression_summary_New Zealand.png}
-    \caption{Regression Summary of NZD.}
-    \label{fig:regression_summary_New Zealand}
-\end{figure}
 
 In conclusion, ...
 
 \section{Conclusion}
+jbjvboiigotulh;joiouti
 \section*{Appendix}
-
+jfogiougiyctugh;oii
 \begin{figure}[h]
     \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_CADCHF_vs_CHF}
     \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_CADCHF_vs_CHF}

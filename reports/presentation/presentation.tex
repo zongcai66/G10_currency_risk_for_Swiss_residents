@@ -33,11 +33,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{pgfplotstable}
-\usepackage{csvsimple}
-
+\usepackage{anyfontsize}
 
 \usepackage{biblatex}
 \addbibresource{references/refs.bib}
+\renewcommand*{\bibfont}{\scriptsize}
 % titlepage
 \author{Xiao Chen, Bosko Todorovic, Yannic Laube, Zhi Wang}
 
@@ -61,7 +61,7 @@
 \section{Introduction}
 \frametitle{Introduction}
 \framesubtitle{G10 currencies}
-G10 currencies refer to the ten most heavily traded and liquid currencies in the world: 
+G10 currencies refer to the ten most heavily traded and liquid currencies in the world~\cite{bis2022report}: 
 
 United States Dollar (USD), Euro (EUR), British Pound (GBP), Japanese Yen (JPY), Australian Dollar (AUD), New Zealand Dollar (NZD), Canadian Dollar (CAD), Swiss Franc (CHF), Norwegian Krone (NOK), and Swedish Krona (SEK).
 
@@ -133,7 +133,7 @@ choices and capital allocation:~\cite{riker2020review}
 \framesubtitle{Why Are G10 Currencies Important to Swiss Residents?}
 \textbf{Saving and Payments}
 \begin{itemize}
-    \item Euro as a Key Currency: Switzerland is near the Euro Area, so the euro (EUR) becomes the main currency for Swiss residents in addition to the Swiss Franc. It is widely used for cross-border shopping, travel, and international payments.
+    \item Euro as a Key Currency: Switzerland is near the Euro Area, so the euro (EUR) becomes the main currency for Swiss residents in addition to the Swiss Franc. It is widely used for cross-border shopping, travel, and international payments~\cite{sif_imf_reports}.
 \end{itemize}
 \end{frame}
 % ---------------------------------------------------------------------------
@@ -221,33 +221,35 @@ Two different methods for calculating VaR were applied:
 \frametitle{Main Findings}
 \framesubtitle{VaR Calculation}
 In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
-
+\begin{table}[h]
+\centering
+\caption{\footnotesize Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.} 
+\label{tab:var_results}
+\scalebox{0.48}{
+    \pgfplotstabletypeset[
+        col sep=comma,
+        fixed zerofill,
+        columns/Currency Pair/.style={string type},
+        columns/Historical VaR/.style={
+            fixed,
+            precision=6,
+            zerofill
+        },
+        columns/Monte Carlo VaR/.style={
+            fixed,
+            precision=6,
+            zerofill
+        },
+        every head row/.style={before row=\hline, after row=\hline},
+        every last row/.style={after row=\hline},
+    ]{reports/figures/VaR_results.csv}
+}
+\end{table}
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.48\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
-    \caption{Historical VaR of G10 currencies.}
+    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
+    \caption{\footnotesize Historical VaR of G10 currencies.}
     \label{fig:historical_VaR}
 \end{figure}
-
-% \begin{table}[!ht]
-%     \centering
-%     \scalebox{0.48}{%
-%     \begin{tabular}{|c|c|c|}
-%     \hline
-%         Currency Pair & Historical VaR (5\%) & Monte Carlo VaR (5\%) \\ \hline
-%         AUDCHF & \textbf{-0.011509} & \textbf{-0.016160} \\ \hline
-%         CADCHF & -0.010249 & -0.009102 \\ \hline
-%         EURCHF & -0.005769 & -0.005250 \\ \hline
-%         GBPCHF & -0.009199 & -0.009942 \\ \hline
-%         JPYCHF & -0.009865 & -0.009910 \\ \hline
-%         NOKCHF & -0.010415 & -0.007992 \\ \hline
-%         NZDCHF & \textbf{-0.011832} & \textbf{-0.012486} \\ \hline
-%         SEKCHF & -0.009085 & \textbf{-0.011836} \\ \hline
-%         USDCHF & -0.009714 & -0.001894 \\ \hline
-%     \end{tabular}}
-%     \label{table:var}
-%     \caption{Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.}
-% \end{table}
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
@@ -298,9 +300,8 @@ GBP shows the most significant price volatility, approximately 0.4, indicating h
 \begin{frame}
 \frametitle{Main Findings}
 \framesubtitle{Price Simulation}
-\begin{itemize}
-    \item These three currencies have a wide potential price fluctuation range, with correspondingly high investment risks and potential returns.
-\end{itemize}
+These three currencies have a wide potential price fluctuation range, with correspondingly high investment risks and potential returns.
+
 For both VaR and price simulations:
 \begin{itemize}
     \item AUD and NZD exhibit both high risk persistence and significant price volatility, indicating that they are high-risk and high-reward currency pairs suitable only for investors willing to take substantial risks.
@@ -332,35 +333,43 @@ Low volatility and steady VaR make JPY an excellent hedging option in an investm
 \begin{frame}
 \frametitle{Main Findings}
 \framesubtitle{Regression Analysis}
-
-\begin{figure}
-    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_NOKCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_NOKCHF_vs_CHF}
-    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for NOK-CHF.}
-\end{figure}
+JPY shows a significant negative sensitivity to interest rate
+changes, with $\beta = -3.25$ and highly significant. The return rate of yen fluctuates significantly with changes in interest rates.
+\begin{table}[h]
+\centering
+\caption{\footnotesize Regression summaries of exchange rate returns on interest rate differentials.} 
+\label{tab:var_results}
+\resizebox{\textwidth}{!}{
+\pgfplotstabletypeset[
+    col sep=comma,
+    string type,
+    columns={Country, Alpha, Beta, Alpha Std.Err., Beta Std.Err., Alpha t, Beta t, Alpha P>|t|, Beta P>|t|},
+    columns/Country/.style={string type, column name=Country},
+    columns/Alpha/.style={fixed, precision=4, column name=$\alpha$},
+    columns/Beta/.style={fixed, precision=4, column name=$\beta$},
+    columns/Alpha Std.Err./.style={fixed, precision=4, column name=std.err\_$\alpha$},
+    columns/Beta Std.Err./.style={fixed, precision=4, column name=std.err\_$\beta$},
+    columns/Alpha t/.style={fixed, precision=4, column name=t-value\_$\alpha$},
+    columns/Beta t/.style={fixed, precision=4, column name=t-value\_$\beta$},
+    columns/Alpha P>|t|/.style={fixed, precision=4, column name=p-value\_$\alpha$},
+    columns/Beta P>|t|/.style={fixed, precision=4, column name=p-value\_$\beta$},
+    every head row/.style={before row=\hline, after row=\hline},
+    every last row/.style={after row=\hline}
+]{reports/figures/regression_summaries.csv}
+}
+\end{table}
+Due to the stability of the Japanese economy and the market confidence in the yen’s role as a safe-haven currency, the overall volatility of the yen is controlled. This explains why the VaR and price volatility of yen are both low, meaning that in the actual market, the price volatility of the yen is controlled by certain factors that may reduce its extreme
+short-term risk.
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\begin{figure}
-    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
-    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for NZD-CHF.}
-\end{figure}
-\begin{figure}
-    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_SEKCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_SEKCHF_vs_CHF}
-    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for SEK-CHF.}
-\end{figure}
-\end{frame}
-% ---------------------------------------------------------------------------
-\begin{frame}
-\frametitle{Main Findings}
-\begin{figure}
-    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_USDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_USDCHF_vs_CHF}
-    \includegraphics[width=0.49\linewidth]{reports/figures/monte_carlo_var_simulation_USDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_USDCHF_vs_CHF}
-    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for USD-CHF.}
-\end{figure}
+\framesubtitle{Regression Analysis}
+regression results for NZD showing a low sensitivity to interest rate changes ($\beta$ = 0.13, and not significant), which implies that interest rate changes
+do not have a major impact on NZD in the regression model. However, VaR and price volatility of NZD are high. This indicates that NZD has considerable volatility
+in the actual market, then there may be other factors significantly affect NZD, such as
+commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market. These factors may not have been
+adequately captured in the interest rate regression model.
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
@@ -372,23 +381,8 @@ Low volatility and steady VaR make JPY an excellent hedging option in an investm
 \begin{frame}
 \section{References}
 \frametitle{References}
-\scriptsize \printbibliography
+\printbibliography
 \end{frame}
 % ---------------------------------------------------------------------------
-\begin{frame}
-
-
-
-\csvreader[
-    tabular=|l|c|c|,
-    table head=\hline Currency Pair & Historical VaR \(5\%\) & Monte Carlo VaR \(5\%\) \\ \hline,
-    late after line=\\\hline
-]{reports/presentationVaR_results.csv}{}% 文件路径
-{\csvcoli & \csvcolii & \csvcoliii}
-
-
-    
-\end{frame}
-
 
 \end{document}
