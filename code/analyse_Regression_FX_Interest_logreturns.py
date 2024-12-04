@@ -2,19 +2,19 @@ import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 
-# URL der CSV-Datei mit den transformierten Daten
-url = "https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/transformed/merged_FX_Interest_logreturns.csv"
+# URL of the CSV file containing modeling data
+url = "https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/modeling_data/merged_FX_Interest_logreturns.csv"
 
-# Lade die CSV-Datei von der URL
+# Load the CSV file from the URL
 df = pd.read_csv(url)
 
-# Länder, die im Datensatz enthalten sind
+# Countries included in the dataset
 countries = df['country'].unique()
 
-# Liste für Ergebnisse (für die CSV-Datei)
+# List to store results (for the CSV file)
 results_list = []
 
-# Funktion zum Hinzufügen von Sternchen für Signifikanz
+# Function to add stars for significance levels
 def add_stars(p_value):
     if p_value < 0.01:
         return "***"
@@ -24,55 +24,55 @@ def add_stars(p_value):
         return "*"
     return ""
 
-# Funktion zur Formatierung von Zahlen für die Darstellung im Plot
+# Function to format numerical values for display in the plot
 def format_value(value):
-    # Wenn der Wert numerisch ist, formatieren wir ihn auf 2 Dezimalstellen
+    # If the value is numeric, format it to 2 decimal places
     if isinstance(value, (float, int)):
         return f"{value:.2f}"  # Formatierung auf 2 Dezimalstellen mit genauem Abstand
     return str(value)
 
-# Funktion zur Formatierung der P-Werte mit Sternchen
+# Function to format p-values with stars
 def format_p_value(p_value):
     try:
-        p_value_float = float(p_value)  # Versuche den P-Wert als Zahl zu interpretieren
-        stars = add_stars(p_value_float)  # Füge Sterne hinzu, falls erforderlich
-        return f"{stars} {p_value_float:.2f}"  # Sterne links vom P-Wert und Dezimalstellen ausgerichtet
+        p_value_float = float(p_value)  # Try interpreting the p-value as a number
+        stars = add_stars(p_value_float)  # Add stars if applicable
+        return f"{stars} {p_value_float:.2f}"  # Stars on the left and aligned decimals
     except ValueError:
-        return p_value  # Falls es sich um einen anderen Wert handelt (z. B. bereits formatiert)
+        return p_value  # Return the value as-is if it's already formatted
 
-# Führe die Regression für jedes Land durch
+# Perform regression for each country
 for country in countries:
-    # Filtere die Daten für jedes Land
+    # Filter the data for each country
     country_data = df[df['country'] == country]
     
-    # Setze die y- und x-Variablen
+    # Set the y and x variables
     y = country_data['log_return']
     X = country_data['interest_rate_log_diff']
     
-    # Füge den konstanten Term (Intercept) hinzu
+    # Add a constant term (intercept)
     X = sm.add_constant(X)
     
-    # Führe die Regression durch
+    # Perform the regression
     model = sm.OLS(y, X).fit()
 
-    # Erstelle eine Zusammenfassung der Regressionsanalyse
+    # Create a summary of the regression analysis
     summary = model.summary2()
 
-    # Ersetze 'const' durch 'alpha' und 'interest_rate_log_diff' durch 'Beta'
+    # Replace 'const' with 'alpha' and 'interest_rate_log_diff' with 'Beta'
     summary.tables[1].index = summary.tables[1].index.str.replace('const', 'alpha')
     summary.tables[1].index = summary.tables[1].index.str.replace('interest_rate_log_diff', 'Beta')
 
-    # Formatierung der Tabelle auf 2 Dezimalstellen und Ausrichtung
+    # Format the table to 2 decimal places with alignment
     summary.tables[1] = summary.tables[1].applymap(lambda x: format_value(x))
 
-    # P-Werte formatieren und Sterne hinzufügen
+    # Format p-values and add stars
     summary.tables[1]['P>|t|'] = summary.tables[1]['P>|t|'].apply(format_p_value)
 
-    # Extrahiere rohe Werte für die CSV-Datei (mit 4 Dezimalstellen)
+    # Extract raw values for the CSV file (with 4 decimal places)
     alpha_row = model.params['const'], model.bse['const'], model.tvalues['const'], model.pvalues['const'], model.conf_int().loc['const', 0], model.conf_int().loc['const', 1]
     beta_row = model.params['interest_rate_log_diff'], model.bse['interest_rate_log_diff'], model.tvalues['interest_rate_log_diff'], model.pvalues['interest_rate_log_diff'], model.conf_int().loc['interest_rate_log_diff', 0], model.conf_int().loc['interest_rate_log_diff', 1]
 
-    # Füge die Werte zur Liste für die CSV-Ausgabe hinzu (mit 4 Dezimalstellen)
+    # Add values to the list for the CSV output (with 4 decimal places)
     results_list.append({
         'Country': country,
         'Alpha': f"{alpha_row[0]:.4f}",
@@ -89,31 +89,31 @@ for country in countries:
         'Beta 0.975]': f"{beta_row[5]:.4f}"
     })
 
-    # Erstelle das Plot mit der Zusammenfassung als Text
-    fig, ax = plt.subplots(figsize=(12, 7))  # Erstelle ein Plot mit passender Größe
-    ax.axis('off')  # Deaktiviere die Achsen
+    # Create the plot with the summary as text
+    fig, ax = plt.subplots(figsize=(12, 7))  # Create a plot with an appropriate size
+    ax.axis('off')  # Disable axes
     
-    # Formatierung der Zusammenfassung für das Plot (mit 2 Dezimalstellen und Ausrichtung)
+    # Format the summary for the plot (with 2 decimal places and alignment)
     formatted_text = summary.as_text()
     formatted_text = "\n".join([format_value(value) for value in formatted_text.split('\n')])
 
-    # Drucke die Zusammenfassung als Text im Plot
+    # Print the summary text in the plot
     ax.text(0.1, 0.5, formatted_text, ha='left', va='center', fontsize=10, family='monospace')  # Monospace sorgt für die Ausrichtung der Dezimalstellen
 
     ax.set_title(f'Regression Summary for {country}', fontsize=12)
 
-    # Speichern des Plots als PNG-Datei
+    # Save the plot as a PNG file
     output_dir = '../reports/figures'
     output_file = f'{output_dir}/regression_summary_{country}.png'
     plt.tight_layout()
     plt.savefig(output_file)
 
-    # Schließen des Plots
+    # Close the plot
     plt.close()
 
     print(f"Regression summary for {country} saved to '{output_file}'")
 
-# Konvertiere die Ergebnisse in einen DataFrame und speichere sie als CSV
+# Convert the results into a DataFrame and save it as a CSV
 results_df = pd.DataFrame(results_list)
 output_csv = '../reports/figures/regression_summaries.csv'
 results_df.to_csv(output_csv, index=False)

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Load FX data
-fx_url = "https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/transformed/yahoo_FX_2.csv"
+fx_url = "https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/modeling_data/yahoo_FX_2.csv"
 rates_url = "https://raw.githubusercontent.com/zongcai66/G10_currency_risk_for_Swiss_residents/refs/heads/main/data/raw/interest_rates.csv"
 
 # Load FX data
@@ -90,6 +90,6 @@ print("First rows of the merged and filtered data:")
 print(df_merged.head())
 
 # Save the final DataFrame
-output_file = '../data/transformed/merged_FX_Interest_logreturns.csv'
+output_file = '../data/modeling_data/merged_FX_Interest_logreturns.csv'
 df_merged.to_csv(output_file, index=False)
 print(f"Merged data has been saved to '{output_file}'.")

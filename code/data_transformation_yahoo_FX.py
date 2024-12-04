@@ -20,12 +20,12 @@ def clean_nok_value(row):
 # Apply the cleaning function to the rows
 df = df.apply(clean_nok_value, axis=1)
 
-# Create a directory for the 'transformed' folder in the parent directory if it doesn't already exist
-output_dir = '../data/transformed'  # Go one directory up and then to the 'transformed' folder
+# Create a directory for the 'modeling_data' folder in the parent directory if it doesn't already exist
+output_dir = '../data/modeling_data'  # Go one directory up and then to the 'modeling_data' folder
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
-# Save the cleaned file as 'yahoo_FX_2.csv' in the 'data/transformed' folder in the parent directory
+# Save the cleaned file as 'yahoo_FX_2.csv' in the 'data/modeling_data' folder in the parent directory
 output_file = os.path.join(output_dir, 'yahoo_FX_2.csv')
 df.to_csv(output_file, index=False)
 
