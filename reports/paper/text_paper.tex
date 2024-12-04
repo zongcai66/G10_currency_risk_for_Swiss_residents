@@ -54,7 +54,7 @@ However, systematic comparisons of G10 currency risks from the perspective of Sw
 
 \section{Methodology}
 
-Various quantitative approaches were applied in this study to assess the exchange rate risk of the G10 currencies against the Swiss Franc. The methods used include the calculation of Value-at-Risk (VaR) through different models, the analysis of volatilities, and the investigation of the sensitivity of exchange rate returns to interest rate differentials. These approaches are described in detail in the following subsections.
+Various quantitative approaches were applied in this study to assess the exchange rate risk of the G10 currencies against the Swiss Franc. The methods used include the calculation of Value-at-Risk (VaR) through different models, the calculation of the historical Expected Shortfall (ES), the analysis of volatilities, and the investigation of the sensitivity of exchange rate returns to interest rate differentials. These approaches are described in detail in the following subsections.
 
 \subsection{Calculation of Value-at-Risk (VaR)}
 
@@ -65,6 +65,10 @@ The historical calculation is based on the empirical distribution of historical 
 As part of the Monte Carlo simulation for the value-at-risk (VaR) of exchange rates, 10 simulations were conducted to examine possible future scenarios for the exchange rate development of the G10 currencies against the Swiss franc (CHF). The Value-at-Risk (VaR) for the simulated price paths and simulated returns was calculated for the last period of the simulation, and the VaR was explicitly visualized in the return simulation.
 First, simulated price paths for each currency were generated. These price paths were simulated using the most recent prices and daily volatility, and then visualized, without explicitly displaying the VaR.
 In a subsequent step, simulated returns were calculated based on the generated price movements. These returns were visualized over the simulated periods to represent the fluctuation range of the returns. The VaR 5\% for the simulated returns was explicitly calculated for the last day of the simulation and displayed as a horizontal line in the charts. This line marks the maximum loss that will not be exceeded with 95\% probability.
+
+\subsection{Calculation of Historical Expected Shortfall (ES)}
+
+In addition to the calculation of Value-at-Risk (VaR), the Expected Shortfall (ES) was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Eexoected Shortfall, and it was calculated separately for each of the G10 currencies in relation to the Swiss franc.
 
 \subsection{Volatility Analysis}
 
