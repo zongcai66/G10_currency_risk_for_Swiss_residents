@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{dcolumn}
 \usepackage{threeparttable}
+\usepackage{float}
 
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 
@@ -35,22 +36,22 @@
 \begin{document}
 \maketitle
 \section{Introduction}
-The rapid development of international trade and cross-border investment has promoted the foreign exchange (FX) market to be an increasingly critical component of the global economy. In international trade, the FX market not only provides the basis for currency exchange but also influences the pricing of goods, trade costs, and the competitiveness of businesses. However, uncertainties of exchange rate fluctuations have introduced significant risks and challenges to both international trade and investment~\cite{AUBOIN_RUTA_2013}~\cite{riker2020review}.
+The rapid development of international trade and cross-border investment had promoted the foreign exchange (FX) market to be an increasingly critical component of the global economy. In international trade, the FX market not only provided the basis for currency exchange but also influenced the pricing of goods, trade costs, and the competitiveness of businesses. However, uncertainties of exchange rate fluctuations had introduced significant risks and challenges to both international trade and investment~\cite{AUBOIN_RUTA_2013}~\cite{riker2020review}.
 
-According to the Bank for International Settlements (BIS)~\cite{bis2022report}, the daily trading volume of the global FX market has exceeded \$7 trillion, with G10 currencies forming the core of this market due to their high liquidity and active trading. The G10 currencies refer to the group of ten most heavily traded and liquid currencies in the global foreign exchange market. These include the US dollar (USD), euro (EUR), Japanese yen (JPY), British pound (GBP), Swiss franc (CHF), Canadian dollar (CAD), Australian dollar (AUD), New Zealand dollar (NZD), Swedish krona (SEK), and Norwegian krone (NOK). For an open economy like Switzerland, Swiss residents holding assets denominated in other G10 currencies still face potential risks arising from exchange rate fluctuations, such as asset value depreciation, increased transaction costs, and financial market volatility affecting their investment portfolios. Moreover, G10 currencies also play a critical role in various aspects of Swiss residents' financial activities. In this context, analyzing exchange rate fluctuations and evaluating the risk characteristics of G10 currencies from perspective of a Swiss resident carries significant theoretical and practical importance.
+According to the Bank for International Settlements (BIS), the daily trading volume of the global FX market had exceeded \$7 trillion, with G10 currencies forming the core of this market due to their high liquidity. The G10 currencies refer to the group of ten most heavily traded and liquid currencies in the global foreign exchange market. These include the US Dollar (USD), Euro (EUR), Japanese Yen (JPY), British Pound (GBP), Swiss Franc (CHF), Canadian Dollar (CAD), Australian Dollar (AUD), New Zealand Dollar (NZD), Swedish Krona (SEK), and Norwegian Krone (NOK)~\cite{bis2022report}. For an open economy like Switzerland, Swiss residents holding assets denominated in other G10 currencies still faced potential risks arising from exchange rate fluctuations, such as asset value depreciation, increased transaction costs, and financial market volatility affecting their investment portfolios. Moreover, G10 currencies also played a critical role in various aspects of Swiss residents' financial activities. In this context, analyzing exchange rate fluctuations and evaluating the risk characteristics of G10 currencies from perspective of a Swiss resident carried significant theoretical and practical importance.
 
-This study aims to address the following key question: 'Which of the G10 currencies is the riskiest for Swiss residents?' By utilizing historical data and Monte Carlo simulation methods, this report evaluates the volatility, Value-at-Risk (VaR), and Expected Shortfall (ES) of each G10 currency to identify the most risky assets. The findings are expected to provide a scientific basis of investment and risk management strategies for Swiss residents.
+This study aims to address the following research question: 'Which of the G10 currencies is the riskiest for Swiss residents?' By utilizing historical data and Monte Carlo simulation methods, this report evaluated the volatility, Value-at-Risk (VaR), and Expected Shortfall (ES) of each G10 currency to identify the most risky assets. The findings were expected to provide a scientific basis of investment and risk management strategies for Swiss residents.
 
 \section{Literature Review}
-A review of the existing literature provides insights into the relationship between exchange rate fluctuations, international trade, and cross-border investments. Auboin and Ruta~\cite{AUBOIN_RUTA_2013} highlight that exchange rate volatility introduces uncertainties for exporters and importers while significantly impacting cross-border investments. Companies experiencing sharp exchange rate fluctuations may experience revenue shrinkage due to foreign currency depreciation or asset devaluation.
+A review of the existing literature provides insights into the relationship between exchange rate fluctuations, international trade, and cross-border investments. Auboin and Ruta~\cite{AUBOIN_RUTA_2013} highlighted that exchange rate volatility introduces uncertainties for exporters and importers while significantly impacting cross-border investments. Companies experiencing sharp exchange rate fluctuations might suffer revenue shrinkage due to foreign currency depreciation or asset devaluation.
 
-Riker and Wickramarachi~\cite{riker2020review} further argue that persistent exchange rate changes influence multinational corporations' strategic decisions, including investment location choices and capital allocation. For instance, Avdjiev \textit{et al.}~\cite{dollar_exchange} indicate that U.S. dollar appreciation often reduces USD-denominated cross-border banking flows, thereby imposing greater financing and investment risks on countries and corporations heavily reliant on USD debt.
+Riker and Wickramarachi~\cite{riker2020review} further argued that persistent exchange rate changes influenced multinational corporations' strategic decisions, including investment location choices and capital allocation. For instance, Avdjiev \textit{et al.}~\cite{dollar_exchange} indicated that U.S. dollar appreciation often reduced USD-denominated cross-border banking flows, thereby imposing higher financing and investment risks on countries and corporations heavily reliant on USD debt.
 
-Researches also highlight the role of G10 currencies in the daily activities and investment strategies of Swiss residents. As a key currency in the Euro Area, the euro plays a significant role for Swiss residents in daily financial activities~\cite{engel2016exchange}~\cite{goulferni2023switzerland}. Due to Switzerland's geographical proximity to the Euro Area, EUR is commonly used alongside the Swiss franc for cross-border shopping, travel, and international payments~\cite{sif_imf_reports}. Additionally, high-liquidity G10 currencies such as the US dollar, the euro, and Japanese yen provide Swiss residents with easy access to global investment opportunities, including equities, bonds, and real estate~\cite{rogoff2000six}. Their stability helps reduce exchange rate risks~\cite{campbell2002strategic}~\cite{engel2016exchange}, ensuring more predictable investment returns and mitigating the likelihood of extreme financial losses~\cite{de1998big}. Furthermore, the liquidity and stability of G10 currencies allow Swiss residents to diversify their assets beyond the Swiss franc, a factor particularly relevant during periods of economic uncertainty~\cite{ito2020currency}. Some G10 currencies, such as the Swiss Franc and Japanese Yen, exhibit strong safe-haven properties~\cite{ranaldo2010safe}, enabling Swiss residents to preserve their wealth during periods of global financial turbulence or geopolitical instability. As a globally recognized safe-haven currency, volatility of Swiss Franc in relation to other G10 currencies is important to Swiss residents.
+Researches also indicated the role of G10 currencies in the daily activities and investment strategies of Swiss residents. As a key currency in the Euro Area, the Euro played a significant role for Swiss residents in daily financial activities~\cite{engel2016exchange}~\cite{goulferni2023switzerland}. Due to Switzerland's geographical proximity to the Euro Area, EUR was commonly used alongside the Swiss franc for cross-border shopping, travel, and international payments~\cite{sif_imf_reports}. Additionally, high-liquidity G10 currencies such as the US dollar, the euro, and Japanese yen provided Swiss residents with easy access to global investment opportunities, including equities, bonds, and real estate~\cite{rogoff2000six}. Their stability helped reduce exchange rate risks~\cite{campbell2002strategic}~\cite{engel2016exchange}, ensuring more predictable investment returns and mitigating the likelihood of extreme financial losses~\cite{de1998big}. Furthermore, the liquidity and stability of G10 currencies allowed Swiss residents to diversify their assets beyond the Swiss franc, a factor particularly relevant during periods of economic uncertainty~\cite{ito2020currency}. Some G10 currencies, such as the Swiss Franc and Japanese Yen, exhibited strong safe-haven properties~\cite{ranaldo2010safe}, enabling Swiss residents to preserve their wealth during periods of global financial turbulence or geopolitical instability. As a globally recognized safe-haven currency, volatility of Swiss Franc in relation to other G10 currencies was important to Swiss residents.
 
-In addition, existing research suggests that FX market risks are often assessed through indicators such as volatility, Value-at-Risk (VaR), and Expected Shortfall (ES)~\cite{AUBOIN_RUTA_2013}~\cite{dollar_exchange}~\cite{riker2020review}. Monte Carlo simulation methods are also frequently employed to forecast future price paths, assisting investors in identifying potential extreme risks.
+In addition, existing research suggested that FX market risks often assessed through indicators such as volatility, Value-at-Risk (VaR), and Expected Shortfall (ES)~\cite{AUBOIN_RUTA_2013}~\cite{dollar_exchange}~\cite{riker2020review}. Monte Carlo simulation methods were also frequently employed to forecast future price paths, assisting investors in identifying potential extreme risks.
 
-However, systematic comparisons of G10 currency risks from the perspective of Swiss residents are scarce in the existing literature. This report aims to address this gap by evaluating the risk characteristics of G10 currencies through historical data analysis and simulation-based methods.
+However, systematic comparisons of G10 currency risks from the perspective of Swiss residents were scarce in the existing literature. This report aims to address this gap by evaluating the risk characteristics of G10 currencies through historical data analysis and simulation-based methods.
 
 \section{Methodology}
 
@@ -86,11 +87,55 @@ The compiled datasets contain overnight interest rates and foreign exchange rate
 \subsection{Overnight Interest Rates}
 Overnight interest rate data for Norway, Japan, the United Kingdom, the United States, Germany, Australia, New Zealand, and Canada were obtained from the Federal Reserve Economic Data (FRED) database. These data represent monthly average rates, transformed and published according to FRED's standards. Data for Switzerland was retrieved from the Swiss National Bank's (SNB) official API, specifically using the SARON (Swiss Average Rate Overnight) series to reflect overnight interest rates. Similarly, overnight interest rate data for Sweden was sourced from the Swedish Riksbank’s Interest Rates and Exchange Rates Statistics, where the repo effective rate is presented in monthly values. The dataset spans the period from January 2000 to October 2024.
 
-\subsection*{Foreign Exchange Rates}
+\subsection{Foreign Exchange Rates}
 Daily foreign exchange rate data for G10 currencies against the Swiss Franc (CHF) were collected using the YFinance library. The dataset includes exchange rates for the Euro (EUR/CHF), British Pound (GBP/CHF), US Dollar (USD/CHF), Canadian Dollar (CAD/CHF), Swedish Krona (SEK/CHF), Japanese Yen (JPY/CHF), Australian Dollar (AUD/CHF), New Zealand Dollar (NZD/CHF), and Norwegian Krone (NOK/CHF). The data spans the period from January 1, 2004, to October 21, 2024.
 
 \section{Results}
 \subsection{Basic Risk Measures}
+
+In our study, several fundamental risk measures were used to evaluate the exchange rate risk of G10 currencies against the Swiss Franc (CHF). The primary risk measures include volatility, Value-at-Risk (VaR), and Expected Shortfall (ES), which help assess the price fluctuations and potential risks of holding foreign exchange assets. Additionally, Overnight Rates, Normalized FX Returns, and Regression Analysis were used as supporting tools to aid in the risk assessment process.
+
+\textbf{Volatility}
+
+Volatility is a measure of the extent to which the exchange rate fluctuates over time. It is commonly expressed as the standard deviation of asset returns. In the context of foreign exchange markets, higher volatility indicates larger price swings, reflecting higher uncertainty and risk.
+
+Formula for Volatility:
+\[
+\text{Volatility} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_i - \bar{r})^2}
+\]
+where \(r_i\) represents the daily return, \(\bar{r}\) is the mean return, and \(N\) is the sample size. Volatility is calculated as the standard deviation of daily returns over a specified period.
+
+\textbf{Value-at-Risk (VaR)}
+
+Value-at-Risk (VaR) is a widely used risk management tool that estimates the maximum potential loss of an asset or portfolio within a given time frame and at a specified confidence level. In our study, two methods for calculating VaR were employed:
+
+\begin{itemize}
+    \item \textbf{Historical Method:} This method is based on historical data and calculates the 5\% quantile of the return distribution to estimate VaR at a 95\% confidence level.
+    \item \textbf{Monte Carlo Simulation:} This method simulates multiple possible future paths for exchange rate movements and calculates VaR based on these simulated return samples.
+\end{itemize}
+
+\textbf{Expected Shortfall (ES)}
+
+Expected Shortfall (ES), also known as Conditional Value-at-Risk (CVaR), is a risk measure that provides the average loss beyond the VaR threshold. It captures the tail risk that VaR fails to account for, giving a more complete view of potential extreme losses.
+
+Formula for Expected Shortfall (ES):
+\[
+\text{ES}_{\alpha} = \mathbb{E}[X | X \leq VaR_{\alpha}]
+\]
+where \(X\) is the loss distribution and \(VaR_{\alpha}\) is the Value-at-Risk at the confidence level \(\alpha\). ES is the expected value of losses exceeding the VaR threshold.
+
+Expected Shortfall is particularly useful for assessing the risk of extreme market movements and is often used alongside VaR to provide a fuller picture of risk in the tail of the distribution.
+
+\textbf{Supporting Indicators and Tools}
+
+In addition to the primary risk measures, several other factors and tools were used to aid in understanding the exchange rate risk of G10 currencies:
+
+\begin{itemize}
+    \item \textbf{Overnight Rates:} The overnight interest rate is the rate at which banks lend to each other overnight. Although it is not a direct risk measure, it helps explain currency movements by reflecting interest rate differentials. A higher overnight rate tends to strengthen a currency, while a lower rate may weaken it.
+    \item \textbf{Normalized FX Returns:} Normalized FX returns allow for the comparison of exchange rate changes across different currencies by standardizing the returns. This method helps to better understand the relative volatility and risk of each currency.
+    \item \textbf{Regression Analysis:} Regression models were used to analyze the relationship between exchange rate returns and macroeconomic variables such as interest rate differentials, helps identify the key factors influencing exchange rate risk, providing valuable insights for future risk assessments.
+\end{itemize}
+
 
 \subsection{VaR Calculation}
 In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
@@ -124,7 +169,7 @@ In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\r
     \label{fig:historical_VaR}
 \end{figure}
 
-However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR loss of over 1\%, suggesting that AUD and NZD exhibit high risk persistence as can be shown in Figure~\ref{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}.
+However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR loss of over 1\%, suggesting that AUD and NZD exhibited high risk persistence as can be shown in Figure~\ref{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}.
 
 \begin{figure}[H]
     \centering   
@@ -132,53 +177,53 @@ However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR l
     \caption{Monte Carlo VaR Simulation of AUDCHF vs. CHF}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering   \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}
     \caption{Monte Carlo VaR Simulation of NZDCHF vs. CHF}  \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
 \end{figure}
 
-In other words, both historical data and simulations indicate that these two currencies carry sustained risk characteristics, and investors should be particularly cautious when considering these currency pairs. It is worth noting that SEK showed increased risk in the Monte Carlo simulation, with its VaR exceeding 1\%, transitioning from a low-risk to a high-risk profile. This suggests that SEK may face greater uncertainty and potential risks in future market volatility.
+In other words, both historical data and simulations indicated that these two currencies carried sustained risk characteristics, and investors should be particularly cautious when considering these currency pairs. It is worth noting that SEK showed increased risk in the Monte Carlo simulation, with its VaR exceeding 1\%, transitioning from a low-risk to a high-risk profile. This suggested that SEK might face greater uncertainty and potential risks in future market volatility.
 
 \subsection{Price Simulation}
-Regarding price simulations, GBP shows the most significant price volatility, approximately 0.4 (Figure~\ref{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}), indicating high future price uncertainty for GBP pairs. 
+Regarding price simulations, GBP showed the most significant price volatility, approximately 0.4 (Figure~\ref{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}), indicating high future price uncertainty for GBP pairs. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_GBPCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of GBPCHF vs. CHF}  \label{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}
 \end{figure}
 
 Volatility of AUDCHF is around 0.33 (Figure~\ref{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}), and of NZDCHF is approximately 0.27 (Figure~\ref{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}), also reflecting considerable price uncertainty. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of AUDCHF vs. CHF} \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of NZDCHF vs. CHF} \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
 \end{figure}
-This suggests that these three currencies have a wide potential price fluctuation range, with correspondingly high investment risks and potential returns.
+This suggested that these three currencies have a wide potential price fluctuation range, with correspondingly high investment risks and potential returns.
 
-To summarize the results from both VaR and price simulations, AUD and NZD exhibit both high risk persistence and significant price volatility, indicating that they are high-risk and high-reward currency pairs suitable only for investors willing to take substantial risks. GBP, despite having a relatively low VaR, has significant price volatility of around 0.4, indicating strong future price fluctuations. Investing in this currency pair requires fully considering the risks associated with its price movements. Therefore, investors should make informed choices regarding these currency pairs based on their own risk tolerance and assessment of future market conditions.
+To summarize the results from both VaR and price simulations, AUD and NZD displayed both high risk persistence and significant price volatility, which means that they were high-risk and high-reward currency pairs suitable only for investors willing to take substantial risks. GBP, despite having a relatively low VaR, had significant price volatility of around 0.4, indicating strong future price fluctuations. Investing in this currency pair requires fully considering the risks associated with its price movements. Therefore, investors should make informed choices regarding these currency pairs based on their own risk tolerance and assessment of future market conditions.
 
-Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF} highlight that JPY has the lowest price volatility, around 0.0022, indicating extremely low future price fluctuations. Combined with its historical VaR and Monte Carlo simulation results consistently remaining around 0.9\%, JPY demonstrates very stable risk characteristics. This suggests that JPY is relatively stable in the current market environment. Its low volatility and steady VaR make it an excellent hedging option in an investment portfolio, especially suitable for investors seeking lower-risk investments.
+Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF} showed that JPY had the lowest price volatility, around 0.0022, indicating extremely low future price fluctuations. Combined with its historical VaR and Monte Carlo simulation results consistently remaining around 0.9\%, JPY demonstrated very stable risk characteristics. It could be concluded that JPY is relatively stable in the current market environment. The low volatility and steady VaR make it an excellent hedging option in an investment portfolio, especially suitable for investors seeking lower-risk investments.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}
     \caption{Monte Carlo VaR Simulation of JPYCHF vs. CHF}   \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_JPYCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of JPYCHF vs. CHF}  \label{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF}
 \end{figure}
 
 \subsection{Interest Rate Regression Analysis}
-The regression results for JPY show a significant negative sensitivity to interest rate changes in Table~\ref{tab:regression} ($\beta$ = -3.25, highly significant), indicating that the return rate of the yen fluctuates significantly with changes in interest rates. However, due to the stability of the Japanese economy and the market confidence in the yen's role as a safe-haven currency, the overall volatility of the yen is controlled. This explains why the VaR and price volatility of yen are both low, meaning that in the actual market, the price volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.
+The regression results for JPY showed a significant negative sensitivity to interest rate changes in Table~\ref{tab:regression} ($\beta$ = -3.25, highly significant), showing that the return rate of the yen fluctuated significantly with changes in interest rates. However, due to the stability of the Japanese economy and the market confidence in the role of yen as a safe-haven currency, the overall volatility of the yen was controlled. This explained why the VaR and price volatility of yen were both low, meaning that the price volatility of the yen was controlled in the actual market by certain factors that might reduce its extreme short-term risk.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Regression summaries of exchange rate returns on interest rate differentials.} 
 \label{tab:regression}
@@ -201,18 +246,65 @@ The regression results for JPY show a significant negative sensitivity to intere
 ]{reports/figures/regression_summaries.csv}
 }
 \end{table}
-In contrast , despite the regression results for NZD showing a low sensitivity to interest rate changes ($\beta$ = 0.13, and not significant), which implies that interest rate changes do not have a major impact on NZD in the regression model. However, VaR and price volatility of NZD are high. This indicates that NZD has considerable volatility in the actual market, then there may be other factors significantly affect NZD, such as commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market. These factors may not have been adequately captured in the interest rate regression model.
+In contrast , despite the regression results for NZD showing a low sensitivity to interest rate changes ($\beta$ = 0.13, and not significant), which implied that interest rate changes did not have a major impact on NZD in the regression model. However, VaR and price volatility of NZD were high. This indicated that NZD had considerable volatility in the actual market, then there might be other factors significantly affected NZD, such as commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market. These factors might not have been adequately captured in the interest rate regression model.
 
 In conclusion, ...
 
 \section{Conclusion}
-jbjvboiigotulh;joiouti
+
+This study aimed to identify the riskiest G10 currencies to hold for Swiss residents by evaluating exchange rate risks using various quantitative methods, including the calculation of Value-at-Risk (VaR), volatility analysis, Monte Carlo simulations, and regression analysis of exchange rate returns on interest rate differentials.
+
+The analysis of basic risk measures revealed that NOK/CHF, NZD/CHF, and AUD/CHF exhibited the highest volatilities among the G10 currency pairs, indicating higher risk due to greater exchange rate fluctuations. The negative skewness and high kurtosis values further suggested a higher probability of extreme negative returns for these currencies.
+
+Historical VaR calculations supported these findings, with AUD/CHF, CAD/CHF, NOK/CHF, and NZD/CHF showing losses exceeding 1\% at the 95\% confidence level. Monte Carlo simulations reinforced the persistent high-risk nature of AUD/CHF and NZD/CHF, as these currency pairs continued to exhibit VaR losses exceeding 1\% in the forward-looking analysis. The price simulations indicated significant future price volatility for GBP/CHF, AUD/CHF, and NZD/CHF, suggesting substantial uncertainty and potential for large fluctuations in exchange rates.
+
+The regression analysis of exchange rate returns on interest rate differentials showed that JPY/CHF had a significant negative sensitivity to interest rate changes, yet maintained low volatility and VaR, highlighting its stability and potential as a safe-haven currency. Conversely, NZD/CHF displayed high volatility and VaR but showed low sensitivity to interest rate changes, implying that other factors, such as commodity price fluctuations and speculative market behavior, might be influencing its exchange rate risk.
+
+In conclusion, based on the combined analyses, AUD/CHF and NZD/CHF are identified as the riskiest G10 currencies for Swiss residents to hold, due to their high volatility, significant potential losses indicated by VaR calculations, and substantial price uncertainty suggested by Monte Carlo simulations. NOK/CHF also exhibits high risk, primarily due to its elevated volatility and extreme return characteristics.
+
+Investors considering exposure to these currencies should carefully assess their risk tolerance and consider the potential for significant exchange rate fluctuations. Risk management strategies, such as diversification, hedging, or limiting exposure to high-risk currencies, are advisable to mitigate potential adverse impacts on investment portfolios.
+
+On the other hand, JPY/CHF and EUR/CHF appear to be the least risky, exhibiting lower volatility and more stable exchange rate movements against the Swiss Franc. These currencies may be more suitable for risk-averse investors seeking to minimize exchange rate risk in their portfolios.
+
+Ultimately, the findings of this study underscore the importance for Swiss residents to carefully evaluate the exchange rate risks associated with holding foreign currencies. By employing quantitative risk assessment methods, investors can make more informed decisions and develop effective strategies to manage and mitigate currency risk.
+
+
 \section*{Appendix}
-jfogiougiyctugh;oii
-\begin{figure}[h]
+The appendix includes all the figures in the project that are not mentioned in the main text.
+
+\begin{figure}[H]
     \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_CADCHF_vs_CHF}
     \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_CADCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_CADCHF_vs_CHF}
     \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for CAD-CHF.}
 \end{figure}
+
+\begin{figure}[H]
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_USDCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_USDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_USDCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_USDCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for USD-CHF.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_SEKCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_SEKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_SEKCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for SEK-CHF.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_NOKCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NOKCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_NOKCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for NOK-CHF.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_EURCHF_vs_CHF.png} \label{fig:monte_carlo_price_simulation_EURCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_EURCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_EURCHF_vs_CHF}
+    \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for EUR-CHF.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering  \includegraphics[width=0.7\linewidth]{reports/figures/monte_carlo_var_simulation_GBPCHF_vs_CHF.png} \label{fig:monte_carlo_var_simulation_GBPCHF_vs_CHF}
+\end{figure}
+
 \printbibliography
 \end{document}
