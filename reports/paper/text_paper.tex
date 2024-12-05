@@ -59,9 +59,9 @@ Various quantitative approaches were applied in this study to assess the exchang
 
 \subsection{Calculation of Value-at-Risk (VaR)}
 
-Value-at-Risk (VaR) indicates the loss that will not be exceeded with a certain probability and within a specified time period. In this analysis, a holding period of one day was chosen, and a confidence level of 95\% was used. Two different methods for calculating VaR were applied: the historical calculation and the Monte Carlo simulation for a forward-looking VaR calculation.
+Value-at-Risk (VaR) indicates the loss that will not be exceeded with a certain probability and within a specified time period. In this analysis, a confidence level of 95\% was used. Two different methods for calculating VaR were applied: the historical calculation and the Monte Carlo simulation for a forward-looking VaR calculation. The historical calculation was conducted on a monthly basis, while the Monte Carlo simulation was performed on a daily basis.
 
-The historical calculation is based on the empirical distribution of historical returns. The daily exchange rate return was calculated for each currency, and the 5\% quantile of the distribution was used as the estimate for VaR. This method does not make any assumptions about the distribution of returns and thus reflects realistic market conditions.
+The historical calculation is based on the empirical distribution of historical returns. The monthly exchange rate return was calculated for each currency, and the 5\% quantile of the distribution was used as the estimate for VaR. This method does not make any assumptions about the distribution of returns and thus reflects realistic market conditions.
 
 As part of the Monte Carlo simulation for the value-at-risk (VaR) of exchange rates, 10 simulations were conducted to examine possible future scenarios for the exchange rate development of the G10 currencies against the Swiss franc (CHF). The Value-at-Risk (VaR) for the simulated price paths and simulated returns was calculated for the last period of the simulation, and the VaR was explicitly visualized in the return simulation.
 First, simulated price paths for each currency were generated. These price paths were simulated using the most recent prices and daily volatility, and then visualized, without explicitly displaying the VaR.
@@ -69,11 +69,11 @@ In a subsequent step, simulated returns were calculated based on the generated p
 
 \subsection{Calculation of Historical Expected Shortfall (ES)}
 
-In addition to the calculation of Value-at-Risk (VaR), the Expected Shortfall (ES) was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Eexoected Shortfall, and it was calculated separately for each of the G10 currencies in relation to the Swiss franc.
+In addition to the calculation of Value-at-Risk (VaR), the Expected Shortfall (ES) was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Expected Shortfall, and it was calculated on a monthly basis separately for each of the G10 currencies in relation to the Swiss franc.
 
 \subsection{Volatility Analysis}
 
-Volatility was calculated as a measure of the fluctuation intensity of the exchange rates. It was determined based on the standard deviation of the daily returns. High volatility values indicate increased risk, as larger fluctuations in exchange rates imply higher uncertainties. The volatilities of the G10 currencies were compared to identify which currency poses the greatest risk for a Swiss investor. Additionally, time series plots were created to visualize volatility trends during the study period.
+Volatility was calculated as a measure of the fluctuation intensity of the exchange rates. It was determined based on the standard deviation of the monthly returns. High volatility values indicate increased risk, as larger fluctuations in exchange rates imply higher uncertainties. The volatilities of the G10 currencies were compared to identify which currency poses the greatest risk for a Swiss investor. Additionally, time series plots were created to visualize volatility trends during the study period.
 
 \subsection{Regression to Analyze Interest Rate Differentials}
 
