@@ -96,50 +96,43 @@ Daily foreign exchange rate data for G10 currencies against the Swiss Franc (CHF
 
 \section{Results}
 \subsection{Basic Risk Measures}
-\subsection{Basic Risk Measures}
 
 In the analysis of basic risk measures, Figure~\ref{fig:volatility_plot}, Figure~\ref{fig:VaR_plot}, and Figure~\ref{fig:ES_plot} provide insights into the risk profiles of G10 currencies against the Swiss Franc (CHF). These measures, including standard deviation (volatility), Value-at-Risk (VaR), and Expected Shortfall (ES), were calculated based on the monthly returns of normalized exchange rates. The normalization ensured comparability across currency pairs, while the monthly frequency captures longer-term risk patterns.
 
-\subsubsection{Volatility Analysis}
+\textbf{Volatility Analysis}
+
 Figure~\ref{fig:volatility_plot} depicts the standard deviation of monthly returns for each currency pair, serving as a proxy for their price volatility. Among the currency pairs, \textbf{NZDCHF} exhibits the highest volatility at approximately 0.096, followed by \textbf{USDCHF} at 0.076. Conversely, \textbf{AUDCHF} demonstrates the lowest volatility, only around 0.029, indicating relatively stable monthly returns. The results suggest that NZDCHF and USDCHF are the most volatile pairs, posing higher price uncertainty for investors.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{../reports/figures/volatility_plot.png}
+    \includegraphics[width=0.75\linewidth]{reports/figures/volatility_plot.png}
     \caption{Standard Deviation of Returns for Each Currency Pair (Monthly) (5\% Confidence Level).}
     \label{fig:volatility_plot}
 \end{figure}
 
-\subsubsection{Value-at-Risk (VaR) Analysis}
+\textbf{Value-at-Risk (VaR) Analysis}
+
 Figure~\ref{fig:VaR_plot} illustrates the Value-at-Risk (VaR) at the 5\% confidence level for each currency pair. VaR indicates the maximum expected loss at the given confidence level. \textbf{NZDCHF} and \textbf{NOKCHF} have the largest negative VaR values at -0.0508 and -0.0506, respectively, implying the highest potential losses. On the other hand, \textbf{EURCHF} displays the smallest absolute VaR, at -0.0265, reflecting the lowest risk exposure among the analyzed currency pairs. This suggests that investors in NZDCHF and NOKCHF should be prepared for significant potential losses, while EURCHF presents a more conservative risk profile.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{../reports/figures/VaR_5_percent_plot.png}
+    \includegraphics[width=0.75\linewidth]{reports/figures/VaR_5_percent_plot.png}
     \caption{Value at Risk (VaR) at 5\% for Each Currency Pair (Monthly) (5\% Confidence Level).}
     \label{fig:VaR_plot}
 \end{figure}
 
-\subsubsection{Expected Shortfall (ES) Analysis}
+\textbf{Expected Shortfall (ES) Analysis}
+
 Figure~\ref{fig:ES_plot} presents the Expected Shortfall (ES) at the 5\% confidence level, representing the average loss in the worst-case scenarios (i.e., losses exceeding the VaR threshold). \textbf{NOKCHF} again shows the largest ES value at -0.076, closely followed by \textbf{CADCHF} at -0.076. These results confirm that these two currency pairs exhibit the highest levels of risk under extreme market conditions. In contrast, \textbf{EURCHF} has the smallest ES at -0.053, further emphasizing its relatively low-risk characteristics.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{../reports/figures/ES_5_percent_plot.png}
+    \includegraphics[width=0.75\linewidth]{reports/figures/ES_5_percent_plot.png}
     \caption{Expected Shortfall (ES) at 5\% for Each Currency Pair (Monthly) (5\% Confidence Level).}
     \label{fig:ES_plot}
 \end{figure}
 
-\subsubsection{Key Findings}
-The combined results from volatility, VaR, and ES analyses highlight significant differences in the risk profiles of G10 currencies:
-\begin{itemize}
-    \item \textbf{NZDCHF} is identified as the riskiest currency pair, with the highest volatility and substantial VaR and ES values, indicating high uncertainty and potential losses.
-    \item \textbf{NOKCHF} also displays consistently high risk, particularly in terms of extreme losses (VaR and ES).
-    \item \textbf{EURCHF} emerges as the safest option, with the lowest volatility, VaR, and ES values, suggesting a stable and low-risk profile for investors.
-\end{itemize}
-
-These findings provide critical insights for risk-averse investors and those seeking high-risk, high-return opportunities. For example, NZDCHF and NOKCHF may appeal to investors with a higher risk tolerance, while EURCHF offers a safer alternative for more conservative investment strategies.
-
+These results provide critical insights for risk-averse investors and those seeking high-risk, high-return opportunities. For example, NZDCHF and NOKCHF may appeal to investors with a higher risk tolerance, while EURCHF offers a safer alternative for more conservative investment strategies.
 
 \subsection{VaR Calculation}
 In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
