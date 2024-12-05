@@ -97,6 +97,49 @@ Daily foreign exchange rate data for G10 currencies against the Swiss Franc (CHF
 \section{Results}
 \subsection{Basic Risk Measures}
 
+In our study, several fundamental risk measures were used to evaluate the exchange rate risk of G10 currencies against the Swiss Franc (CHF). The primary risk measures include volatility, Value-at-Risk (VaR), and Expected Shortfall (ES), which help assess the price fluctuations and potential risks of holding foreign exchange assets. Additionally, Overnight Rates, Normalized FX Returns, and Regression Analysis were used as supporting tools to aid in the risk assessment process.
+
+\textbf{Volatility}
+
+Volatility is a measure of the extent to which the exchange rate fluctuates over time. It is commonly expressed as the standard deviation of asset returns. In the context of foreign exchange markets, higher volatility indicates larger price swings, reflecting higher uncertainty and risk.
+
+Formula for Volatility:
+\[
+\text{Volatility} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (r_i - \bar{r})^2}
+\]
+where \(r_i\) represents the daily return, \(\bar{r}\) is the mean return, and \(N\) is the sample size. Volatility is calculated as the standard deviation of daily returns over a specified period.
+
+\textbf{Value-at-Risk (VaR)}
+
+Value-at-Risk (VaR) is a widely used risk management tool that estimates the maximum potential loss of an asset or portfolio within a given time frame and at a specified confidence level. In our study, two methods for calculating VaR were employed:
+
+\begin{itemize}
+    \item \textbf{Historical Method:} This method is based on historical data and calculates the 5\% quantile of the return distribution to estimate VaR at a 95\% confidence level.
+    \item \textbf{Monte Carlo Simulation:} This method simulates multiple possible future paths for exchange rate movements and calculates VaR based on these simulated return samples.
+\end{itemize}
+
+\textbf{Expected Shortfall (ES)}
+
+Expected Shortfall (ES), also known as Conditional Value-at-Risk (CVaR), is a risk measure that provides the average loss beyond the VaR threshold. It captures the tail risk that VaR fails to account for, giving a more complete view of potential extreme losses.
+
+Formula for Expected Shortfall (ES):
+\[
+\text{ES}_{\alpha} = \mathbb{E}[X | X \leq VaR_{\alpha}]
+\]
+where \(X\) is the loss distribution and \(VaR_{\alpha}\) is the Value-at-Risk at the confidence level \(\alpha\). ES is the expected value of losses exceeding the VaR threshold.
+
+Expected Shortfall is particularly useful for assessing the risk of extreme market movements and is often used alongside VaR to provide a fuller picture of risk in the tail of the distribution.
+
+\textbf{Supporting Indicators and Tools}
+
+In addition to the primary risk measures, several other factors and tools were used to aid in understanding the exchange rate risk of G10 currencies:
+
+\begin{itemize}
+    \item \textbf{Overnight Rates:} The overnight interest rate is the rate at which banks lend to each other overnight. Although it is not a direct risk measure, it helps explain currency movements by reflecting interest rate differentials. A higher overnight rate tends to strengthen a currency, while a lower rate may weaken it.
+    \item \textbf{Normalized FX Returns:} Normalized FX returns allow for the comparison of exchange rate changes across different currencies by standardizing the returns. This method helps to better understand the relative volatility and risk of each currency.
+    \item \textbf{Regression Analysis:} Regression models were used to analyze the relationship between exchange rate returns and macroeconomic variables such as interest rate differentials, helps identify the key factors influencing exchange rate risk, providing valuable insights for future risk assessments.
+\end{itemize}
+
 
 \subsection{VaR Calculation}
 In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
