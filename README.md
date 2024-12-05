@@ -74,7 +74,7 @@ To assess the risk of G10 currencies against the Swiss Franc, we applied various
 
 #### **VaR Calculation**
 
-VaR was calculated using two methods: historical analysis and Monte Carlo simulation. Both methods used a 1-day holding period and a 95% confidence level. The historical method estimated VaR based on the empirical return distribution, while the Monte Carlo simulation generated forward-looking scenarios to calculate potential losses.
+VaR was calculated using two methods: historical analysis and Monte Carlo simulation. Both methods used a 95% confidence level. The historical method estimated VaR based on the empirical return distribution on a monthly basis, while the Monte Carlo simulation generated forward-looking scenarios to calculate potential losses on a daily basis.
 
 The historical analysis is the simplest method of calculation. For each currency we plot historical return distribution and calculate VaR at 5% level. The highest historical VaR was observed for NOK and NZD, with AUD, JPY and CAD also showing high historical VaR values.
 
@@ -94,13 +94,13 @@ Below, we present the price and return simulations for the New Zealand Dollar (N
 
 #### **Volatility Analysis**
 
-Volatility, measured as the standard deviation of daily returns, was analyzed to assess exchange rate fluctuation intensity. Higher volatility indicates greater risk and uncertainty, helping identify which G10 currencies pose the greatest risk for a Swiss investor. The highest volatility was observed for NZD, USD, and JPY.
+Volatility, measured as the standard deviation of monthly returns, was analyzed to assess exchange rate fluctuation intensity. Higher volatility indicates greater risk and uncertainty, helping identify which G10 currencies pose the greatest risk for a Swiss investor. The highest volatility was observed for NZD, USD, and JPY.
 
 <p align="center">   <img src="https://github.com/zongcai66/G10_currency_risk_for_Swiss_residents/blob/main/reports/figures/volatility_plot.png?raw=true" width="60%" /> </p>
 
 #### **ES Calculation**
 
-Historical Expected Shortfall (ES) was calculated as a complement to VaR to assess tail risk, representing the average loss beyond the 5% quantile of the historical return distribution. This provides insight into potential extreme losses for G10 currencies relative to the Swiss Franc. The highest ES values were observed for NOK and CAD, with NZD and AUD also showing relatively high values.
+Historical Expected Shortfall (ES) was calculated as a complement to VaR to assess tail risk, representing the average loss beyond the 5% quantile of the historical return distribution on a monthly basis. This provides insight into potential extreme losses for G10 currencies relative to the Swiss Franc. The highest ES values were observed for NOK and CAD, with NZD and AUD also showing relatively high values.
 
 <p align="center">   <img src="https://github.com/zongcai66/G10_currency_risk_for_Swiss_residents/blob/main/reports/figures/ES_5_percent_plot.png?raw=true" width="60%" /> </p>
 
