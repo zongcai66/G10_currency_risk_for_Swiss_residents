@@ -36,7 +36,7 @@
 \usepackage{anyfontsize}
 
 \usepackage{biblatex}
-\addbibresource{references/refs.bib}
+\addbibresource{../../references/refs.bib}
 \renewcommand*{\bibfont}{\scriptsize}
 % titlepage
 \author{Xiao Chen, Bosko Todorovic, Yannic Laube, Zhi Wang}
@@ -257,11 +257,11 @@ In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed lo
         },
         every head row/.style={before row=\hline, after row=\hline},
         every last row/.style={after row=\hline},
-    ]{reports/figures/VaR_results.csv}
+    ]{../../reports/figures/VaR_results.csv}
 }
 \end{table}
 \begin{figure}[h]
-    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
+    \centering   \includegraphics[width=0.48\linewidth]{../../reports/figures/var_5_percent_comparison_plot.png}
     \caption{\footnotesize Historical VaR of G10 currencies.}
     \label{fig:historical_VaR}
 \end{figure}
@@ -274,8 +274,8 @@ In the Monte Carlo simulation, AUD and NZD still exhibit high risk persistence.
 
 \begin{figure}[h]
     \centering   
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}   \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_var_simulation_AUDCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}   \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
     \caption{\footnotesize Monte Carlo VaR Simulation of AUDCHF vs. CHF (left) and NZDCHF vs. CHF (right)}  
 \end{figure}
 \end{frame}
@@ -295,7 +295,7 @@ In the Monte Carlo simulation, AUD and NZD still exhibit high risk persistence.
 \framesubtitle{Price Simulation}
 GBP shows the most significant price volatility = 0.4, with high future price uncertainty.
 \begin{figure}[h]
-    \centering  \includegraphics[width=0.75\linewidth]{reports/figures/monte_carlo_price_simulation_GBPCHF_vs_CHF.png}
+    \centering  \includegraphics[width=0.75\linewidth]{../../reports/figures/monte_carlo_price_simulation_GBPCHF_vs_CHF.png}
     \caption{Monte Carlo Price Simulation of GBPCHF vs. CHF}  \label{fig:monte_carlo_price_simulation_GBPCHF_vs_CHF}
 \end{figure}
 \end{frame}
@@ -306,8 +306,8 @@ GBP shows the most significant price volatility = 0.4, with high future price un
 Volatility of AUDCHF is around 0.33, and of NZDCHF is 0.27, also reflecting considerable price uncertainty.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}    \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}    \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
     \caption{Monte Carlo Price Simulation of AUDCHF vs. CHF (left) and NZDCHF vs. CHF (right)} 
 \end{figure}
 \end{frame}
@@ -330,8 +330,8 @@ For \textbf{both VaR and price simulations}:
     \item The Monte Carlo simulation result consistently remaining around 0.9\%. JPY demonstrates very \textbf{stable} risk characteristics. 
 \end{itemize}
 \begin{figure}
-    \centering  \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_price_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF}
-    \includegraphics[width=0.48\linewidth]{reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
+    \centering  \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_price_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_JPYCHF_vs_CHF}
+    \includegraphics[width=0.48\linewidth]{../../reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
     \caption{\footnotesize Monte Carlo price siulation (left) and VaR simulation (right) for JPY-CHF.}
 \end{figure}
 \end{frame}
@@ -366,7 +366,7 @@ The return rate of JPY fluctuates significantly with changes in interest rates, 
     columns/Beta P>|t|/.style={fixed, precision=4, column name=p-value\_$\beta$},
     every head row/.style={before row=\hline, after row=\hline},
     every last row/.style={after row=\hline}
-]{reports/figures/regression_summaries.csv}
+]{../../reports/figures/regression_summaries.csv}
 }
 \end{table}
 Due to the stability of the Japanese economy, the overall volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.

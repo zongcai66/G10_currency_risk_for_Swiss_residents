@@ -9,7 +9,7 @@ alpha = 5  # Value-at-Risk level (in percentile)
 freq = 'M'  # Frequency for resampling ('D' = daily, 'M' = monthly, 'Q' = quarterly, '2A' = semi-annually, 'A' = annually)
 
 #### load data ####
-df1_FX = pd.read_csv("data/raw/yahoo_FX.csv")
+df1_FX = pd.read_csv("../data/raw/yahoo_FX.csv")
 # Filter for 'Adj Close' type and drop rows with missing 'value'
 df = df1_FX[df1_FX['type'] == 'Adj Close'].dropna(subset=['value'])
 # Normalize the 'value' column by the first value for each ticker
@@ -66,7 +66,7 @@ freq_map = {
 freq_title = freq_map.get(freq, 'Unknown Frequency')
 
 # Create the "reports/figures" directory if it doesn't exist
-os.makedirs("reports/figures", exist_ok=True)
+# os.makedirs("reports/figures", exist_ok=True)
 
 # 1. Plot for Standard Deviation of Returns (Volatility)
 plt.figure(figsize=(12, 6))
@@ -77,7 +77,7 @@ plt.ylabel(f"Standard Deviation (Volatility) - {alpha_title}")
 plt.xticks(rotation=90)
 plt.tight_layout()
 # Save the plot as a PNG file
-plt.savefig("reports/figures/volatility_plot.png")
+plt.savefig("../reports/figures/volatility_plot.png")
 plt.close()
 
 # 2. Plot for Value at Risk (VaR) at 5% for each Currency Pair
@@ -89,7 +89,7 @@ plt.ylabel(f"VaR at 5% {alpha_title}")
 plt.xticks(rotation=90)
 plt.tight_layout()
 # Save the plot as a PNG file
-plt.savefig("reports/figures/VaR_5_percent_plot.png")
+plt.savefig("../reports/figures/VaR_5_percent_plot.png")
 plt.close()
 
 # 3. Plot for Expected Shortfall (ES) at 5% for each Currency Pair
@@ -101,8 +101,8 @@ plt.ylabel(f"ES at 5% {alpha_title}")
 plt.xticks(rotation=90)
 plt.tight_layout()
 # Save the plot as a PNG file
-plt.savefig("reports/figures/ES_5_percent_plot.png")
+plt.savefig("../reports/figures/ES_5_percent_plot.png")
 plt.close()
 
 # Save the statistics DataFrame as a CSV file
-stats.to_csv("reports/figures/statistics_results.csv")
+stats.to_csv("../reports/figures/statistics_results.csv")
