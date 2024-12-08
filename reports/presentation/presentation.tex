@@ -59,6 +59,10 @@
 % ---------------------------------------------------------------------------
 \begin{frame}
 \section{Introduction}
+\centering \LARGE \textbf{Introduction}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
 \frametitle{Introduction}
 \framesubtitle{G10 currencies}
 G10 currencies refer to the ten most heavily traded and liquid currencies in the world~\cite{bis2022report}: 
@@ -79,7 +83,11 @@ Risks arising from exchange rate fluctuations:
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
+\centering \LARGE \textbf{Literature Review}
 \section{Literature Review}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
 \frametitle{Literature Review}
 Relationship between exchange rate fluctuations, international trade, and cross-border investments:~\cite{AUBOIN_RUTA_2013}
 \begin{itemize}
@@ -210,9 +218,9 @@ Two different methods for calculating VaR were applied:
 \framesubtitle{Monthly Overnight Interest Rates}
 \begin{itemize}
     \item From January 2000 to October 2024
-    \item Data for G10 currencies (except Switzerland and Sweden) countries were obtained from the Federal Reserve Economic Data (FRED) database.
-    \item Data for Switzerland was retrieved from the Swiss National Bank's (SNB) official API.
-    \item Data for Sweden was sourced from the Swedish Riksbank’s Interest Rates and Exchange Rates Statistics.
+    \item Data for G10 currencies (except Switzerland and Sweden) countries were obtained from the Federal Reserve Economic Data (FRED) database~\cite{fred}.
+    \item Data for Switzerland was retrieved from the Swiss National Bank's (SNB) official API~\cite{snb}.
+    \item Data for Sweden was sourced from the Swedish Riksbank’s Interest Rates and Exchange Rates Statistics~\cite{riksbank}.
 \end{itemize}
 \end{frame}
 % ---------------------------------------------------------------------------
@@ -221,7 +229,7 @@ Two different methods for calculating VaR were applied:
 \framesubtitle{Daily Foreign Exchange Rates}
 \begin{itemize}
     \item From January 1, 2004, to October 21, 2024
-    \item Data for G10 currencies against the Swiss Franc (CHF) were collected using the YFinance library. 
+    \item Data for G10 currencies against the Swiss Franc (CHF) were collected using the YFinance library~\cite{yfinance}. 
 \end{itemize}
 \end{frame}
 % ---------------------------------------------------------------------------
@@ -240,7 +248,7 @@ In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed lo
 \centering
 \caption{\footnotesize Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.} 
 \label{tab:var_results}
-\scalebox{0.48}{
+\scalebox{0.99}{
     \pgfplotstabletypeset[
         col sep=comma,
         fixed zerofill,
@@ -260,11 +268,6 @@ In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed lo
     ]{reports/figures/VaR_results.csv}
 }
 \end{table}
-\begin{figure}[h]
-    \centering   \includegraphics[width=0.48\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
-    \caption{\footnotesize Historical VaR of G10 currencies.}
-    \label{fig:historical_VaR}
-\end{figure}
 \end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}

@@ -135,7 +135,7 @@ Figure~\ref{fig:ES_plot} presents the Expected Shortfall (ES) at the 5\% confide
 These results provide critical insights for risk-averse investors and those seeking high-risk, high-return opportunities. For example, NZDCHF and NOKCHF may appeal to investors with a higher risk tolerance, while EURCHF offers a safer alternative for more conservative investment strategies.
 
 \subsection{VaR Calculation}
-In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+In the historical VaR analysis from Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
 
 \begin{table}[H]
 \centering
@@ -159,12 +159,6 @@ In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\r
     every last row/.style={after row=\hline},
 ]{reports/figures/VaR_results.csv}
 \end{table}
-
-\begin{figure}[H]
-    \centering   \includegraphics[width=0.75\linewidth]{reports/figures/var_5_percent_comparison_plot.png}
-    \caption{Historical VaR of G10 currencies.}
-    \label{fig:historical_VaR}
-\end{figure}
 
 However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR loss of over 1\%, suggesting that AUD and NZD exhibited high risk persistence as can be shown in Figure~\ref{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}.
 
