@@ -1,0 +1,73 @@
+.
+├── LICENSE
+├── Makefile
+├── README.md
+├── code
+│   ├── analyse_Regression_FX_Interest_logreturns.py
+│   ├── analyse_VAR_Monte_Carlo_fx.py
+│   ├── analyse_basic_risk_measures.py
+│   ├── data_collector_interest_rates.py
+│   ├── data_collector_yahoo.py
+│   ├── data_transformation_yahoo_FX.py
+│   ├── environmental_analyse_script.txt
+│   └── merge_FX_interest_yearly.py
+├── data
+│   ├── modeling_data
+│   │   ├── merged_FX_Interest_logreturns.csv
+│   │   └── yahoo_FX_2.csv
+│   └── raw
+│       ├── interest_rates.csv
+│       └── yahoo_FX.csv
+├── git status
+├── notebooks
+│   └── interactive_google_colab_app.ipynb
+├── project_structure.txt
+├── references
+│   └── refs.bib
+├── reports
+│   ├── figures
+│   │   ├── ES_5_percent_plot.png
+│   │   ├── VaR_5_percent_plot.png
+│   │   ├── VaR_results.csv
+│   │   ├── average_return_plot.png
+│   │   ├── exchange_rate_plot.png
+│   │   ├── monte_carlo_price_simulation_AUDCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_CADCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_EURCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_GBPCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_JPYCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_NOKCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_NZDCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_SEKCHF_vs_CHF.png
+│   │   ├── monte_carlo_price_simulation_USDCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_AUDCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_CADCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_EURCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_GBPCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_JPYCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_NOKCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_NZDCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_SEKCHF_vs_CHF.png
+│   │   ├── monte_carlo_var_simulation_USDCHF_vs_CHF.png
+│   │   ├── regression_summaries.csv
+│   │   ├── regression_summary_Australia.png
+│   │   ├── regression_summary_Canada.png
+│   │   ├── regression_summary_Germany.png
+│   │   ├── regression_summary_Japan.png
+│   │   ├── regression_summary_New Zealand.png
+│   │   ├── regression_summary_Norway.png
+│   │   ├── regression_summary_Sweden.png
+│   │   ├── regression_summary_UK.png
+│   │   ├── regression_summary_United States.png
+│   │   ├── returns_var_plot.png
+│   │   ├── statistics_results.csv
+│   │   ├── std_deviation_return_plot.png
+│   │   ├── var_5_percent_comparison_plot.png
+│   │   └── volatility_plot.png
+│   ├── paper
+│   │   └── text_paper.tex
+│   └── presentation
+│       └── presentation.tex
+└── requirements.txt
+
+11 directories, 60 files

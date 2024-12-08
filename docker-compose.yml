@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  code-runner:
+    image: wz0973/g10_currency_analysis:latest
+    container_name: code-runner
+    command: >
+      bash -c "
+      cd code &&
+      python analyse_VAR_Monte_Carlo_fx.py &&
+      python analyse_basic_risk_measures.py &&
+      python analyse_Regression_FX_Interest_logreturns.py
+      "
+    volumes:
+      - ./reports:/app/reports
+
+  paper-builder:
+    image: wz0973/g10_currency_analysis:latest
+    container_name: paper-builder
+    command: >
+      bash -c "
+      cd reports/paper &&
+      pdflatex text_paper.tex &&
+      biber text_paper &&
+      pdflatex text_paper.tex &&
+      pdflatex text_paper.tex
+      "
+    volumes:
+      - ./reports:/app/reports
+
+  presentation-builder:
+    image: wz0973/g10_currency_analysis:latest
+    container_name: presentation-builder
+    command: >
+      bash -c "
+      cd reports/presentation &&
+      pdflatex presentation.tex &&
+      biber presentation &&
+      pdflatex presentation.tex &&
+      pdflatex presentation.tex
+      "
+    volumes:
+      - ./reports:/app/reports
+
+  notebook-runner:
+    image: wz0973/g10_currency_analysis:latest
+    container_name: notebook-runner
+    command: >
+      bash -c "
+      cd notebooks &&
+      jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
+      "
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/app/notebooks
