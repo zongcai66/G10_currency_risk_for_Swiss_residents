@@ -7,7 +7,7 @@ download docker and docker-compose: my version(Docker version 27.3.1, build ce12
      cd desktop
      git clone git@github.com:zongcai66/G10_currency_risk_for_Swiss_residents.git
      cd G10_currency_risk_for_Swiss_residents
-     ```
+  ```
 2. build the docker images:
   ```bash
    docker build -t <your-dockerhub-username>/<image-name>:latest .
