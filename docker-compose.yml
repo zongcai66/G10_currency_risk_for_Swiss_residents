@@ -12,6 +12,7 @@ services:
       "
     volumes:
       - ./reports:/app/reports
+      - ./data:/app/data
 
   paper-builder:
     image: wz0973/g10_currency_analysis:latest
@@ -26,6 +27,7 @@ services:
       "
     volumes:
       - ./reports:/app/reports
+      - ./data:/app/data
 
   presentation-builder:
     image: wz0973/g10_currency_analysis:latest
@@ -40,6 +42,7 @@ services:
       "
     volumes:
       - ./reports:/app/reports
+      - ./data:/app/data
 
   notebook-runner:
     image: wz0973/g10_currency_analysis:latest
@@ -53,3 +56,4 @@ services:
       - "8888:8888"
     volumes:
       - ./notebooks:/app/notebooks
+      - ./data:/app/data
