@@ -30,7 +30,7 @@
 \usepackage{pgfplotstable}
 
 \title{\textbf{Which of the G10 Currencies is the Riskiest to Hold for a Swiss Resident?}}
-\author{Xiao Chen 21-742-820, Yannic Laube, Bosko Todorovic, Zhi Wang}
+\author{Xiao Chen 21-742-820, Yannic Laube 18-703-090, \\ Bosko Todorovic 17-725-755, Zhi Wang 21-739-552}
 \date{\today}
 
 \begin{document}
@@ -67,7 +67,7 @@ As part of the Monte Carlo simulation for the value-at-risk (VaR) of exchange ra
 First, simulated price paths for each currency were generated. These price paths were simulated using the most recent prices and daily volatility, and then visualized, without explicitly displaying the VaR.
 In a subsequent step, simulated returns were calculated based on the generated price movements. These returns were visualized over the simulated periods to represent the fluctuation range of the returns. The VaR 5\% for the simulated returns was explicitly calculated for the last day of the simulation and displayed as a horizontal line in the charts. This line marks the maximum loss that will not be exceeded with 95\% probability.
 
-\subsection{Calculation of Historical Expected Shortfall (ES)}
+\subsection{Calculation of Expected Shortfall (ES)}
 
 In addition to the calculation of Value-at-Risk (VaR), the Expected Shortfall (ES) was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Expected Shortfall, and it was calculated on a monthly basis separately for each of the G10 currencies in relation to the Swiss franc.
 
@@ -135,7 +135,7 @@ Figure~\ref{fig:ES_plot} presents the Expected Shortfall (ES) at the 5\% confide
 These results provide critical insights for risk-averse investors and those seeking high-risk, high-return opportunities. For example, NZDCHF and NOKCHF may appeal to investors with a higher risk tolerance, while EURCHF offers a safer alternative for more conservative investment strategies.
 
 \subsection{VaR Calculation}
-In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+In the historical VaR analysis from Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
 
 \begin{table}[H]
 \centering
@@ -159,12 +159,6 @@ In the historical VaR analysis from Figure~\ref{fig:historical_VaR} and Table~\r
     every last row/.style={after row=\hline},
 ]{../../reports/figures/VaR_results.csv}
 \end{table}
-
-\begin{figure}[H]
-    \centering   \includegraphics[width=0.75\linewidth]{../../reports/figures/var_5_percent_comparison_plot.png}
-    \caption{Historical VaR of G10 currencies.}
-    \label{fig:historical_VaR}
-\end{figure}
 
 However, in the Monte Carlo simulation, only AUD and NZD still indicated a VaR loss of over 1\%, suggesting that AUD and NZD exhibited high risk persistence as can be shown in Figure~\ref{fig:monte_carlo_var_simulation_AUDCHF_vs_CHF} and Figure~\ref{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}.
 
