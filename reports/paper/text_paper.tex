@@ -63,13 +63,14 @@ Value-at-Risk indicates the loss that will not be exceeded with a certain probab
 
 The historical calculation is based on the empirical distribution of historical returns. The monthly exchange rate return was calculated for each currency, and the 5\% quantile of the distribution was used as the estimate for VaR. This method does not make any assumptions about the distribution of returns and thus reflects realistic market conditions.
 
-As part of the Monte Carlo simulation for the value-at-risk (VaR) of exchange rates, 10 simulations were conducted to examine possible future scenarios for the exchange rate development of the G10 currencies against the Swiss franc (CHF). The Value-at-Risk (VaR) for the simulated price paths and simulated returns was calculated for the last period of the simulation, and the VaR was explicitly visualized in the return simulation.
+As part of the Monte Carlo simulation for the VaR of exchange rates, 10 simulations were conducted to examine possible future scenarios for the exchange rate development of the G10 currencies against the Swiss franc (CHF). The VaR for the simulated price paths and simulated returns was calculated for the last period of the simulation, and the VaR was explicitly visualized in the return simulation.
 First, simulated price paths for each currency were generated. These price paths were simulated using the most recent prices and daily volatility, and then visualized, without explicitly displaying the VaR.
 In a subsequent step, simulated returns were calculated based on the generated price movements. These returns were visualized over the simulated periods to represent the fluctuation range of the returns. The VaR 5\% for the simulated returns was explicitly calculated for the last day of the simulation and displayed as a horizontal line in the charts. This line marks the maximum loss that will not be exceeded with 95\% probability.
 
-\subsection{Calculation of Expected Shortfall (ES)}
+\subsection{Calculation of Expected Shortfall}
 
-In addition to the calculation of Value-at-Risk (VaR), the Expected Shortfall (ES) was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Expected Shortfall, and it was calculated on a monthly basis separately for each of the G10 currencies in relation to the Swiss franc.
+In addition to the calculation of 
+VaR, ES was also computed to provide a more comprehensive measure of the tail risk. The Expected Shortfall is calculated by identifying the returns that fall below the 5\% quantile of the return distribution (as used in VaR). The average of these returns represents the Expected Shortfall. This measure is useful for understanding the potential size of losses beyond the VaR level and gives more information about the extreme risks that could affect an investor. Historical data was used to calculate the Expected Shortfall, and it was calculated on a monthly basis separately for each of the G10 currencies in relation to the Swiss franc.
 
 \subsection{Volatility Analysis}
 
@@ -106,36 +107,36 @@ Figure~\ref{fig:volatility_plot} depicts the standard deviation of monthly retur
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{../../reports/figures/volatility_plot.png}
-    \caption{Standard Deviation of Returns for Each Currency Pair (Monthly) (5\% Confidence Level).}
+    \caption{Standard Deviation of Returns for Each Currency Pair (Monthly).}
     \label{fig:volatility_plot}
 \end{figure}
 
 \textbf{Value-at-Risk Analysis}
 
-Figure~\ref{fig:VaR_plot} illustrates the Value-at-Risk (VaR) at the 5\% confidence level for each currency pair. VaR indicates the maximum expected loss at the given confidence level. \textbf{NZDCHF} and \textbf{NOKCHF} have the largest negative VaR values at -0.0508 and -0.0506, respectively, implying the highest potential losses. On the other hand, \textbf{EURCHF} displays the smallest absolute VaR, at -0.0265, reflecting the lowest risk exposure among the analyzed currency pairs. This suggests that investors in \textbf{NZDCHF} and \textbf{NOKCHF} should be prepared for significant potential losses, while \textbf{EURCHF} presents a more conservative risk profile.
+Figure~\ref{fig:VaR_plot} illustrates the VaR at the 5\% confidence level for each currency pair. VaR indicates the maximum expected loss at the given confidence level. \textbf{NZDCHF} and \textbf{NOKCHF} have the largest negative VaR values at -0.0508 and -0.0506, respectively, implying the highest potential losses. On the other hand, \textbf{EURCHF} displays the smallest absolute VaR, at -0.0265, reflecting the lowest risk exposure among the analyzed currency pairs. This suggests that investors in \textbf{NZDCHF} and \textbf{NOKCHF} should be prepared for significant potential losses, while \textbf{EURCHF} presents a more conservative risk profile.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{../../reports/figures/VaR_5_percent_plot.png}
-    \caption{Value at Risk (VaR) at 5\% for Each Currency Pair (Monthly) (5\% Confidence Level).}
+    \caption{Value at Risk at 5\% for Each Currency Pair (Monthly).}
     \label{fig:VaR_plot}
 \end{figure}
 
 \textbf{Expected Shortfall Analysis}
 
-Figure~\ref{fig:ES_plot} presents the Expected Shortfall (ES) at the 5\% confidence level, representing the average loss in the worst-case scenarios (i.e., losses exceeding the VaR threshold). \textbf{NOKCHF} again shows the largest ES value at -0.076, closely followed by \textbf{CADCHF} at -0.076. These results confirm that these two currency pairs exhibit the highest levels of risk under extreme market conditions. In contrast, \textbf{EURCHF} has the smallest ES at -0.053, further emphasizing its relatively low-risk characteristics.
+Figure~\ref{fig:ES_plot} presents the ES at the 5\% confidence level, representing the average loss in the worst-case scenarios (i.e., losses exceeding the VaR threshold). \textbf{NOKCHF} again shows the largest ES value at -0.076, closely followed by \textbf{CADCHF} at -0.076. These results confirm that these two currency pairs exhibit the highest levels of risk under extreme market conditions. In contrast, \textbf{EURCHF} has the smallest ES at -0.053, further emphasizing its relatively low-risk characteristics.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{../../reports/figures/ES_5_percent_plot.png}
-    \caption{Expected Shortfall (ES) at 5\% for Each Currency Pair (Monthly) (5\% Confidence Level).}
+    \caption{Expected Shortfall at 5\% for Each Currency Pair (Monthly).}
     \label{fig:ES_plot}
 \end{figure}
 
 These results provide critical insights for risk-averse investors and those seeking high-risk, high-return opportunities. For example, \textbf{NZDCHF} and \textbf{NOKCHF} may appeal to investors with a higher risk tolerance, while \textbf{EURCHF} offers a safer alternative for more conservative investment strategies.
 
 \subsection{Daily VaR Calculation}
-As a robustness test, the dailt VaR measures where estimated via historical data as well as Monte Carlo simulation.
+As a robustness test, the daily VaR measures where estimated via historical data as well as Monte Carlo simulation.
 
 In the historical VaR analysis from Table~\ref{tab:var}, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
 
@@ -214,7 +215,7 @@ Figure~\ref{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF} and Figure~\ref{fig:mo
 \end{figure}
 
 \subsection{Interest Rate Regression Analysis}
-Under the assumption of uncovered interest parity (UIP), the expected change in the exchange rate should be fully explained by the interest rate differential. In other words, the relationship implies that the exchange rate depreciation (or appreciation) is equal to the difference in the interest rates between the two currencies. According to our model, under the UIP, we would expect $\alpha=0$ and $\beta=-1$
+Under the assumption of uncovered interest parity (UIP), the expected change in the exchange rate should be fully explained by the interest rate differential. In other words, the relationship implies that the exchange rate depreciation (or appreciation) is equal to the difference in the interest rates between the two currencies. According to our model, under the UIP, we would expect $\alpha=0$ and $\beta=-1$.
 
 \begin{table}[H]
 \centering
