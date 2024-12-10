@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   code-runner:
-    image: wz0973/g10_currency_analysis:latest
+    image: wz0973/g10_currency_risk_analysis:latest
     container_name: code-runner
     command: >
       bash -c "
@@ -15,7 +15,7 @@ services:
       - ./data:/app/data
 
   paper-builder:
-    image: wz0973/g10_currency_analysis:latest
+    image: wz0973/g10_currency_risk_analysis:latest
     container_name: paper-builder
     command: >
       bash -c "
@@ -30,7 +30,7 @@ services:
       - ./data:/app/data
 
   presentation-builder:
-    image: wz0973/g10_currency_analysis:latest
+    image: wz0973/g10_currency_risk_analysis:latest
     container_name: presentation-builder
     command: >
       bash -c "
@@ -45,7 +45,7 @@ services:
       - ./data:/app/data
 
   notebook-runner:
-    image: wz0973/g10_currency_analysis:latest
+    image: wz0973/g10_currency_risk_analysis:latest
     container_name: notebook-runner
     command: >
       bash -c "
