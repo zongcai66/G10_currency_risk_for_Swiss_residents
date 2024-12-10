@@ -35,7 +35,7 @@
 \usepackage{pgfplotstable}
 \usepackage{anyfontsize}
 
-\usepackage{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{../../references/refs.bib}
 \renewcommand*{\bibfont}{\scriptsize}
 % titlepage
@@ -257,8 +257,42 @@ The methods used include the calculation of \textbf{Expected Shortfall (ES)}, \t
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{VaR Calculation}
-In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
+\framesubtitle{Monthly Basic Risk Measures -Volatility}
+NZDCHF and USDCHF are the most
+volatile pairs, posing higher price uncertainty for investors. AUDCHF demonstrates the lowest volatility.
+\begin{figure}[h]
+    \centering   \includegraphics[width=0.9\linewidth]{../../reports/figures/volatility_plot.png}
+    \caption{\footnotesize Standard Deviation of Returns for Each Currency Pair (Monthly).}
+    \label{fig:volatility_plot}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\framesubtitle{Monthly Basic Risk Measures -VaR}
+NZDCHF and NOKCHF have the largest negative VaR values. EURCHF displays the smallest absolute VaR.
+\begin{figure}[h]
+    \centering   \includegraphics[width=0.9\linewidth]{../../reports/figures/VaR_5_percent_plot.png}
+    \caption{\footnotesize Value at Risk at 5\% for Each Currency Pair (Monthly).}
+    \label{fig:monthly_var_plot}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\framesubtitle{Monthly Basic Risk Measures -ES}
+NOKCHF again shows the largest ES value at -0.076, closely followed by CADCHF at -0.076, exhibiting the highest levels of risk under extreme market conditions. EURCHF has the smallest ES, emphasizing its relatively low-risk characteristics.
+\begin{figure}[h]
+    \centering   \includegraphics[width=0.9\linewidth]{../../reports/figures/ES_5_percent_plot.png}
+    \caption{\footnotesize Expected Shortfall at 5\% for Each Currency Pair (Monthly).}
+    \label{fig:month_es_plot}
+\end{figure}
+\end{frame}
+% ---------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Main Findings}
+\framesubtitle{Daily VaR Calculation}
+In daily historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed losses exceeding 1\%. 
 \begin{table}[h]
 \centering
 \caption{\footnotesize Historical VaR (5\%) and Monte Carlo VaR (5\%) for each currency pair.} 
@@ -292,7 +326,7 @@ In the historical VaR analysis, AUDCHF, CADCHF, NOKCHF, and NZDCHF all showed lo
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{VaR Calculation}
+\framesubtitle{Daily VaR Calculation}
 In the Monte Carlo simulation, AUD and NZD still exhibit high risk persistence.
 
 \begin{figure}[h]
@@ -304,7 +338,7 @@ In the Monte Carlo simulation, AUD and NZD still exhibit high risk persistence.
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{VaR Calculation}
+\framesubtitle{Daily VaR Calculation}
 \begin{figure}[h]
     \centering     \includegraphics[width=0.9\linewidth]{../../reports/figures/monte_carlo_var_simulation_NZDCHF_vs_CHF.png}   \label{fig:monte_carlo_var_simulation_NZDCHF_vs_CHF}
 \caption{\footnotesize Monte Carlo VaR Simulation of NZDCHF vs. CHF}
@@ -323,7 +357,7 @@ In the Monte Carlo simulation, AUD and NZD still exhibit high risk persistence.
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{VaR Simulation}
+\framesubtitle{Daily VaR Calculation}
 The Monte Carlo simulation result consistently remaining around 0.9\%. JPY demonstrates very \textbf{stable} risk characteristics. 
 \begin{figure}
     \centering   \includegraphics[width=0.9\linewidth]{../../reports/figures/monte_carlo_var_simulation_JPYCHF_vs_CHF.png}  \label{fig:monte_carlo_var_simulation_JPYCHF_vs_CHF}
@@ -348,7 +382,7 @@ The Monte Carlo simulation result consistently remaining around 0.9\%. JPY demon
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{Price Simulation}
+\framesubtitle{Daily Price Simulation}
 Volatility of AUDCHF is around 0.33, and of NZDCHF is 0.27, also reflecting considerable price uncertainty.
 \begin{figure}[h]
     \centering \includegraphics[width=0.9\linewidth]{../../reports/figures/monte_carlo_price_simulation_AUDCHF_vs_CHF.png}    \label{fig:monte_carlo_price_simulation_AUDCHF_vs_CHF}
@@ -358,7 +392,7 @@ Volatility of AUDCHF is around 0.33, and of NZDCHF is 0.27, also reflecting cons
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{Price Simulation}
+\framesubtitle{Daily Price Simulation}
 \begin{figure}[h]
     \centering  \includegraphics[width=0.9\linewidth]{../../reports/figures/monte_carlo_price_simulation_NZDCHF_vs_CHF.png}  \label{fig:monte_carlo_price_simulation_NZDCHF_vs_CHF}
     \caption{Monte Carlo Price Simulation of NZDCHF vs. CHF}
@@ -377,7 +411,7 @@ Volatility of AUDCHF is around 0.33, and of NZDCHF is 0.27, also reflecting cons
 % ---------------------------------------------------------------------------
 \begin{frame}
 \frametitle{Main Findings}
-\framesubtitle{Price Simulation}
+\framesubtitle{Daily Price Simulation}
 JPY has the lowest price volatility 0.0022, indicating extremely low future price fluctuations. 
 
 \begin{figure}
@@ -390,7 +424,7 @@ JPY has the lowest price volatility 0.0022, indicating extremely low future pric
 \begin{frame}
 \frametitle{Main Findings}
 \framesubtitle{Regression Analysis}
-The return rate of JPY fluctuates significantly with changes in interest rates, with $\beta = -3.25$ and highly significant.
+Under the assumption of uncovered interest parity (UIP), we would expect $\alpha=0$ and $\beta=-1$.
 \begin{table}[h]
 \centering
 \caption{\footnotesize Regression summaries of exchange rate returns on interest rate differentials.} 
@@ -414,15 +448,18 @@ The return rate of JPY fluctuates significantly with changes in interest rates, 
 ]{../../reports/figures/regression_summaries.csv}
 }
 \end{table}
-Due to the stability of the Japanese economy, the overall volatility of the yen is controlled by certain factors that may reduce its extreme short-term risk.
+The presence of a negative $\alpha$ for all G10 currencies when compared to the CHF implies the existence of a risk premium when holding foreign exchange exposures.
 \end{frame}
 % ---------------------------------------------------------------------------
-% \begin{frame}
-% \frametitle{Main Findings}
-% \framesubtitle{Regression Analysis}
-
-% NZD has considerable volatility in the actual market, then there may be other factors significantly affect NZD, e.g. commodity price fluctuations (as New Zealand is a major commodity exporter~\cite{blundell1990exchange}) and speculative behavior in the foreign exchange market.
-% \end{frame}
+\begin{frame}
+\frametitle{Main Findings}
+\framesubtitle{Regression Analysis}
+\begin{itemize}
+    \item Underscores the widely recognized role of the CHF as a ’safe-haven’ currency. 
+    \item Thanks to Switzerland’s longstanding political neutrality, robust financial institutions, and exceptionally low levels of national debt, the CHF is viewed as a particularly stable and low-risk asset.
+    \item While the results of Australia, Canada, Germany, UK and USA have all a slope coefficient around -1, the results of Japan, Norway, New Zealand and Sweden are likely driven by few extreme ourliers.
+\end{itemize}
+\end{frame}
 % ---------------------------------------------------------------------------
 \begin{frame}
 \section{Conclusion}
@@ -434,6 +471,7 @@ Due to the stability of the Japanese economy, the overall volatility of the yen 
 \begin{itemize}
     \item NZD/CHF consistently emerged as the riskiest currency pair. It exhibited the highest volatility at 0.096, the largest VaR at -0.0508, and significant ES values at -0.0712.
     \item JPY/CHF and EUR/CHF appear to be the least risky, exhibiting lower volatility and more stable exchange rate movements against the Swiss Franc. 
+    \item Regression results show that all G10 currencies are likely to offer some degree of risk premium when held in a cash account by a Swiss investor.
 \end{itemize}
 \end{frame}
 % ---------------------------------------------------------------------------
