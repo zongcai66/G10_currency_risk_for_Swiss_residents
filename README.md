@@ -4,11 +4,11 @@ This project aims to address systematic comparisons of G10 currencies from the p
 
 ## **Interactive app**
 
-To enhance the accessibility of our main findings  and offer additional robustness tests, we have included a Jupyter notebook featuring interactive plots, saved under *notebooks/interactive_app.ipynb*. Users can explore these plots without executing any code by clicking on the 'Open in Colab' button. However, to access real-time data or adjust the backtesting horizon, users need to connect to a Google account and run the Jupyter notebook within Google Colab.
+To enhance the accessibility of our main findings  and offer additional robustness tests, we have included a Jupyter notebook featuring interactive plots, saved under **notebooks/interactive_app.ipynb**. Users can explore these plots without executing any code by clicking on the 'Open in Colab' button. However, to access real-time data or adjust the backtesting horizon, users need to connect to a Google account and run the Jupyter notebook within Google Colab.
 
 ## **Reproducibility**
 
-To fully reproduce our findings (including the paper, presentation, and interactive app), we have dockerized the entire project. For detailed instructions on reproducing the results and setting up the environment, please refer to the *Project_Docker_Guide.md* file located in the main GitHub repository.
+To fully reproduce our findings (including the paper, presentation, and interactive app), we have dockerized the entire project. For detailed instructions on reproducing our results and setting up the environment, please refer to the **Project_Docker_Guide.md** file located in the main GitHub repository.
 
 In the main GitHub repository, you will find the following content:
 
