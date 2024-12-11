@@ -1,12 +1,16 @@
 # Which of the G10 currencies is the riskiest to hold for a Swiss resident?
 
-This project aims to address systematic comparisons of G10 currency risks from the perspective of Swiss residents by assessing the exchange rate risk of these currencies against the Swiss Franc (CHF). Several quantitative methods are applied to evaluate the riskiness of holding these currencies for a Swiss investor. The methods include Value-at-Risk (VaR) calculations using various models, the calculation of the historical Expected Shortfall (ES), volatility analysis, and an investigation of the sensitivity of exchange rate returns to interest rate differentials. 
+This project aims to address systematic comparisons of G10 currencies from the perspective of Swiss residents by assessing the exchange rate risk of these currencies against the Swiss Franc (CHF). Several quantitative methods are applied to evaluate the riskiness of holding these currencies for a Swiss investor. The methods include Value-at-Risk (VaR) calculations using various models, the calculation of the historical Expected Shortfall (ES), volatility analysis, and an investigation of the sensitivity of exchange rate returns to interest rate differentials. 
+
+## **Interactive app**
+
+To enhance the accessibility of our main findings  and offer additional robustness tests, we have included a Jupyter notebook featuring interactive plots, saved under *notebooks/interactive_app.ipynb*. Users can explore these plots without executing any code by clicking on the 'Open in Colab' button. However, to access real-time data or adjust the backtesting horizon, users need to connect to a Google account and run the Jupyter notebook within Google Colab.
 
 ## **Reproducibility**
 
-The user can reproduce our research by using the provided scripts and codes along with the data available here. The data is also generated through the scripts provided here. The process of data generation through the provided scripts will be explained in more detail below.
+To fully reproduce our findings (including the paper, presentation, and interactive app), we have dockerized the entire project. For detailed instructions on reproducing the results and setting up the environment, please refer to the *Project_Docker_Guide.md* file located in the main GitHub repository.
 
-In this GitHub repository you will find the following content in the folders of the repository:
+In the main GitHub repository, you will find the following content:
 
 ### **Environmental variables and packages for Python scripts:**
 
@@ -34,7 +38,7 @@ In this GitHub repository you will find the following content in the folders of 
 
 ### **Notebook for interactive app in the notebooks folder:**
 
-**notebooks/interactive_app.ipynb:** Jupyter notebook designed as the interactive application for visualizing and analyzing overnight interest rate data across multiple countries. It uses Plotly to generate interactive plots that display the overnight rates over time, allowing users to zoom in on specific historical events (e.g., the Dotcom Bubble, the Global Financial Crisis, and the COVID-19 Pandemic) through interactive buttons. The notebook also calculates and visualizes the volatility (standard deviation) of overnight rates for each country, helping to identify which currencies are the riskiest based on their rate fluctuations. This interactive app is essential for Swiss residents to assess currency risk.
+**notebooks/interactive_app.ipynb:** Jupiter notebook to interact with our main findings and various robustness tests. Users can explore these plots without executing any code by clicking the 'Open in Colab' button. However, to access real-time data or adjust the backtesting horizon, users need to connect to a Google account and run the Jupyter notebook within Google Colab.
 
 ### **Data files:**
 
