@@ -1,6 +1,6 @@
 # Project Guide
 
-## build local docker way
+## The way of building local docker
 download docker and docker-compose: my version(Docker version 27.3.1, build ce12230; Docker Compose version v2.30.3-desktop.1)
 1. clone code from github:
    ```bash
@@ -44,7 +44,7 @@ download docker and docker-compose: my version(Docker version 27.3.1, build ce12
    ```
    Notice: because i have builded volumes including data, if you want to use new dataset, you can replace the data in the volumes and change the path in the python file in the "code" folder.
 
-## pull way from my docker hub
+## The way of pulling images from my docker hub
 
 1. clone code from github:
    ```bash
