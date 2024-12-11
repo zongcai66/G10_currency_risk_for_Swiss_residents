@@ -45,17 +45,51 @@ download docker and docker-compose: my version(Docker version 27.3.1, build ce12
    Notice: because i have builded volumes including data, if you want to use new dataset, you can replace the data in the volumes and change the path in the python file in the "code" folder.
 
 ## pull way from my docker hub
-1. you can pull my docker i have builded in the docker hub:
+
+1. clone code from github:
+   ```bash
+   cd desktop
+   git clone git@github.com:zongcai66/G10_currency_risk_for_Swiss_residents.git
+   cd G10_currency_risk_for_Swiss_residents
+   ```
+2. you can pull my docker I have builded in the docker hub:
    ```bash
    docker pull wz0973/g10_currency_risk_analysis:latest
    ```
-2. run the command to start all containers:
-   ```bash
-   docker-compose up
-   ```
-   and if you meet some problem, you can run in the docker desktop one by one, and check the file following the way i wrote above.
-   But I suggest that you'd better download the code locally instead of this method.
+3. run the command to start all containers:
 
+   Run Docker Container with Mounted Directories
+   ```bash
+   docker run -it -p 8888:8888 \ -v "$(pwd)/reports:/app/report" \ -v "$(pwd)/data:/app/data" \ wz0973/g10_currency_risk_analysis:latest
+   ```
+   run code:
+   ```bash
+   cd code &&
+      python analyse_VAR_Monte_Carlo_fx.py &&
+      python analyse_basic_risk_measures.py &&
+      python analyse_Regression_FX_Interest_logreturns.py
+   ```
+   run reports:
+   ```bash
+   cd reports/paper &&
+      pdflatex text_paper.tex &&
+      biber text_paper &&
+      pdflatex text_paper.tex
+   ```
+   run slides:
+   ```bash
+   cd reports/presentation &&
+      pdflatex presentation.tex &&
+      biber presentation &&
+      pdflatex presentation.tex
+   ```
+   run jupyter notebook:
+   ```bash
+   jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
+   ```
+   copy the link in the output (http://127.0.0.1:8888/tree?token=......)
+
+4. Note: I do not recommend using this method because Docker CLI and Docker Compose are not pre-installed in the image. Additionally, the docker-compose.yml file I configured relies on volume mounts on the local machine, which won't work with the pulled image. This method also makes it inconvenient to replace datasets or customize file paths. Therefore, I suggest downloading the code locally and running the containers as described above, which will make debugging and managing the project much easier.
 
 ## Other way to build docker image and run it
 
@@ -111,7 +145,7 @@ download docker and docker-compose: my version(Docker version 27.3.1, build ce12
    ```
 2. if http://localhost:8888 rejected my request, please exit Interactive interface first(Ctrl+C) and exit Container(type: exit) and rerun:
    ```bash
-   docker run -it -p 8888:8888 wz0973/g10_currency_analysis:latest
+   docker run -it -p 8888:8888 wz0973/g10_currency_risk_analysis:latest
    ```
    ```bash
    jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
